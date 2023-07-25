@@ -1,0 +1,167 @@
+EJERCICIOS PRACTICOS
+
+1.Crea una aplicación que le pida dos números al usuario y este pueda elegir entre sumar, restar, multiplicar y dividir. La aplicación debe tener una función para cada operación matemática y deben devolver sus resultados para imprimirlos en el main.
+
+public static void main(String[] args) {
+        Scanner entrada = new Scanner (System.in);
+        int resultado;
+        System.out.print("INGRESE UN NUMERO: ");
+        int num1 = entrada.nextInt();
+        System.out.print("INGRESE OTRO NUMERO: ");
+        int num2 = entrada.nextInt();
+        
+        System.out.println("");
+        System.out.println("MENU: ELIJA LA OPCION");
+        System.out.println("1.SUMA(+)");
+        System.out.println("2.RESTA(-)");
+        System.out.println("3.MULTIPLICACION(*)");
+        System.out.println("4.DIVISION(/)");
+        
+        System.out.println("INGRESE LA OPCION");
+        String OP = entrada.next();
+        System.out.println("");
+        
+        
+        switch(OP){
+            case "1": 
+                    resultado=sumar(num1,num2);
+                    System.out.println("EL RESULTADO DE LA SUMA ES: "+resultado);  
+                    break;
+            case "2": 
+                    resultado=restar(num1,num2);
+                    System.out.println("EL RESULTADO DE LA RESTA ES: "+resultado);  
+                    break;
+            case "3": 
+                    resultado=multiplicar(num1,num2);
+                    System.out.println("EL RESULTADO DE LA MULTIPLICACION ES: "+resultado);  
+                    break;
+            case "4": 
+                    resultado=dividir(num1,num2);
+                    System.out.println("EL RESULTADO DE LA DIVISION ES: "+resultado);  
+                    break;
+            default : System.out.println("ERROR");         
+        }
+        
+    }
+    
+    public static int sumar(int A, int B) {
+    int total = A + B;
+    return total;
+    }
+     public static int restar(int A, int B) {
+    int total = A - B;
+    return total;
+    }
+     public static int multiplicar(int A, int B) {
+    int total = A * B;
+    return total;
+    }
+     public static int dividir(int A, int B) {
+    int total = A / B;
+    return total;
+    } 
+ 
+2.Diseñe una función que pida el nombre y la edad de N personas e imprima los datos de las personas ingresadas por teclado e indique si son mayores o menores de edad. Después de cada persona, el programa debe preguntarle al usuario si quiere seguir mostrando personas y frenar cuando el usuario ingrese la palabra “No”.
+
+public static void main(String[] args) {
+      Scanner ingreso = new Scanner (System.in); 
+      String OP="SI";
+      
+      while (OP.equalsIgnoreCase("SI")){
+      presentacion();
+      System.out.println("");
+      System.out.println("¿QUIERE SEGUIR MOSTRANDO PERSONAS? SI/NO");
+      OP = ingreso.nextLine();
+      }
+       
+    }   
+    
+    public static void presentacion() {
+    Scanner entrada = new Scanner (System.in);
+        
+        System.out.println("");
+        System.out.print("INGRESE SU NOMBRE: ");
+        String nombre = entrada.nextLine();
+        System.out.print("INGRESE SU EDAD: ");
+        int edad = entrada.nextInt();
+        System.out.println("");
+        
+        
+        if (edad>17){
+            System.out.println("---ES MAYOR DE EDAD---");
+        } else {
+            System.out.println("---ES MENOR DE EDAD---");
+        }
+  
+    }
+
+3.Crea una aplicación que a través de una función nos convierta una cantidad de euros introducida por teclado a otra moneda, estas pueden ser a dólares, yenes o libras. La función tendrá como parámetros, la cantidad de euros y la moneda a convertir que será una cadena, este no devolverá ningún valor y mostrará un mensaje indicando el cambio (void).
+El cambio de divisas es:
+i.   * 0.86 libras es un 1 €
+ii.  * 1.28611 $ es un 1 €
+iii. * 129.852 yenes es un 1 €
+
+public static void main(String[] args) {
+     Scanner entrada = new Scanner (System.in);
+     
+        System.out.print("INGRESE LA CANTIDAD DE PESOS:");
+        int cantidad = entrada.nextInt();
+        System.out.println("");
+        System.out.println("¿A QUE MONEDA QUIERES HACER LA CONVERSION?");
+        System.out.println("-DOLAR");
+        System.out.println("-EURO");
+        System.out.println("-LIBRA");
+        System.out.println("-REAL");
+        String OP = entrada.next();
+        
+        cambio(cantidad,OP);   
+    }   
+    
+    public static void cambio(int pesos,String moneda) {
+        int total;
+        
+        switch(moneda.toUpperCase()) {
+            case "DOLAR": total=pesos/380;
+                System.out.println("$"+pesos+" ES EQUIVALENTE A U$"+total);
+                break;
+            case "EURO": total=pesos/404;
+                System.out.println("$"+pesos+" ES EQUIVALENTE A E$"+total);
+                break;
+            case "LIBRA": total=pesos/333;
+                System.out.println("$"+pesos+" ES EQUIVALENTE A L$"+total);
+                break;
+            case "REAL": total=pesos/80;
+                System.out.println("$"+pesos+" ES EQUIVALENTE A R$"+total);
+                break;
+        }
+  
+    }
+
+4.Crea una aplicación que nos pida un número por teclado y con una función se lo pasamos por parámetro para que nos indique si es o no un número primo, debe devolver true si es primo, sino false.
+Un número primo es aquel que solo puede dividirse entre 1 y sí mismo. Por ejemplo: 25 no es primo, ya que 25 es divisible entre 5, sin embargo, 17 si es primo.
+
+public static void main(String[] args) {
+       Scanner ingreso = new Scanner (System.in);
+        System.out.print("INGRESE UN NUMERO: ");
+        int numero = ingreso.nextInt();
+        System.out.println("");
+        
+        primo(numero);
+    }   
+    
+    public static void primo(int valor) {
+        int i,contador=0;
+        for(i=1;i<=valor;i++){
+            if(valor%i==0){
+            contador++;
+            }
+        }
+            if(contador==2){
+            System.out.println("---EL NUMERO ES PRIMO---");
+            } else {
+            System.out.println("---EL NUMERO NO ES PRIMO---");
+            }
+    }
+
+
+

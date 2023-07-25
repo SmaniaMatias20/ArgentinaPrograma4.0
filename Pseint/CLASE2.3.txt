@@ -1,0 +1,66 @@
+EJERCICIOS PRACTICOS
+
+1. Escribir un programa que pida dos números enteros por teclado y calcule la suma de los dos. El programa deberá después mostrar el resultado de la suma.
+
+int num,num2,total;
+        Scanner leer = new Scanner (System.in);
+        
+        System.out.println("INGRESE UN NUMERO");
+        num = leer.nextInt();
+        System.out.println("INGRESE OTRO NUMERO");
+        num2 = leer.nextInt();
+        
+        total=num+num2;
+        
+        System.out.println("EL RESULTADO FINAL ES: "+ total);
+
+2. Escribir un programa que pida tu nombre, lo guarde en una variable y lo muestre por pantalla.
+
+ String nombre;
+        Scanner leer = new Scanner (System.in);
+        
+        System.out.print("INGRESE SU NOMBRE: ");
+        nombre = leer.next();
+        
+        System.out.println("SU NOMBRE ES "+ nombre);
+
+3. Escribir un programa que pida una frase y la muestre toda en mayúsculas y después toda en minúsculas. 
+Nota: investigar la función toUpperCase() y toLowerCase() en Java.
+
+ String nombre;
+        Scanner leer = new Scanner (System.in);
+        
+        System.out.print("INGRESE UNA FRASE: ");
+        nombre = leer.nextLine();
+        
+        nombre=toLowerCase(nombre);
+        System.out.println("LA FRASE ES: "+ nombre);
+        nombre = toUpperCase(nombre);
+        System.out.println("LA FRASE ES: "+ nombre);
+
+4. Dada una cantidad de grados centígrados se debe mostrar su equivalente en grados Fahrenheit. La fórmula correspondiente es: F = 32 + (9 * C / 5).
+
+float grados,f;
+        Scanner leer = new Scanner (System.in);
+        
+        System.out.print("INGRESE UNA CANTIDAD DE GRADOS CENTIGRADOS: ");
+        grados = leer.nextFloat();
+        
+        f= 32 + (9*grados/5);
+        System.out.println("EL EQUIVALENTE EN GRADOS FARENHEIT ES: " + f);
+
+5. Escribir un programa que lea un número entero por teclado y muestre por pantalla el doble, el triple y la raíz cuadrada de ese número. 
+Nota: investigar la función Math.sqrt().
+
+ int num,doble,triple,raiz;
+        Scanner leer = new Scanner (System.in);
+        
+        System.out.print("INGRESE UN NUMERO: ");
+        num = leer.nextInt();
+        
+        doble=num+num;
+        triple=num*3;
+        raiz=(int)sqrt(num);
+        System.out.println("EL DOBLE DEL NUMERO INGRESADO ES: "+ doble);
+        System.out.println("EL TRIPLE DEL NUMERO INGRESADO ES: "+ triple);
+        System.out.println("LA RAIZ CUADRADA DEL NUMERO INGRESADO ES: "+ raiz);

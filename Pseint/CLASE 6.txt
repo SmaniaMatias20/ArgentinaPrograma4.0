@@ -1,0 +1,344 @@
+EJERCICIO:
+
+Definir num Como Entero;
+	Escribir "Ingrese un numero del 1 al 12";
+	Leer num;
+	
+	Segun num Hacer
+		1:
+			Escribir "ENERO";
+		2:
+			Escribir "FEBRERO";
+		3:
+			Escribir "MARZO";
+		4:
+			Escribir "ABRIL";
+		5:
+			Escribir "MAYO";
+		6:
+			Escribir "JUNIO";
+		7:
+			Escribir "JULIO";
+		8:
+			Escribir "AGOSTO";
+		9:
+			Escribir "SEPTIEMBRE";
+		10:
+			Escribir "OCTUBRE";
+		11:
+			Escribir "NOVIEMBRE";
+		12:
+			Escribir "DICIEMBRE";
+		De Otro Modo:
+			Escribir "ERROR";
+	Fin Segun
+
+EJERCICIO 1: Construir un programa que simule un menú de opciones para realizar las cuatro
+operaciones aritméticas básicas (suma, resta, multiplicación y división) con dos valores
+numéricos enteros. El usuario, además, debe especificar la operación con el primer
+carácter de la operación que desea realizar: ‘S' o ‘s’ para la suma, ‘R’ o ‘r’ para la resta, ‘M’
+o ‘m’ para la multiplicación y ‘D’ o ‘d’ para la división. 
+
+Definir num,num2,Res Como Real;
+	Definir OP Como Caracter;
+	Escribir "INGRESE EL PRIMER NUMERO";
+	Leer num;
+	Escribir "INGRESE EL SEGUNDO NUMERO";
+	Leer num2;
+	
+	Escribir "ELEGIR OPERACION";
+	Escribir "S- SUMA";
+	Escribir "R- RESTA";
+	Escribir "M- MULTIPLICACION";
+	Escribir "D- DIVISION";
+	Leer OP;
+	
+	Segun OP Hacer
+		"S"o"s":
+			Res=num+num2;
+			Escribir Res;
+		"R"o"r":
+			Res=num-num2;
+			Escribir Res;
+		"M"o"m":
+			Res=num*num2;
+			Escribir Res;
+		"D"o"d":
+			Res=num/num2;
+			Escribir Res;
+			
+		De Otro Modo:
+			Escribir "ERROR";
+
+EJERCICIO 2: Realizar un programa que, dado un número entero, visualice en pantalla si es par o impar.
+En caso de que el valor ingresado sea 0, se debe mostrar “el número no es par ni impar”.
+Nota: investigar la función mod de PSeInt
+
+Definir num Como Real;
+	Escribir "INGRESAR UN NUMERO";
+	Leer num;
+	
+	Si num=0 Entonces
+		Escribir "EL NUMERO NO ES PAR Y TAMPOCO ES IMPAR";
+	SiNo
+		Si num%2==0 Entonces
+			Escribir "EL NUMERO ES PAR";
+		SiNo
+			Escribir "EL NUMERO ES IMPAR";
+		Fin Si
+	Fin Si
+
+EJERCICIO 3: Escriba un programa para obtener el grado de eficiencia de un operario de una fábrica de
+tornillos, de acuerdo a las siguientes dos condiciones que se le imponen para un período
+de prueba:
+• Producir menos de 200 tornillos defectuosos.
+• Producir más de 10000 tornillos sin defectos.
+• El grado de eficiencia se determina de la siguiente manera:
+• Si no cumple ninguna de las condiciones, grado 5.
+• Si sólo cumple la primera condición, grado 6.
+• Si sólo cumple la segunda condición, grado 7.
+• Si cumple las dos condiciones, grado 8
+Nota: para trabajar este ejercicio de manera prolija, ir probando cada inciso que pide el
+ejercicio. No hacer todos al mismo tiempo y después probar.
+
+Definir tornillos,tornillos2 Como Real;
+	Escribir "INGRESE LA CANTIDAD DE TORNILLOS PRODUCIDOS";
+	Leer tornillos;
+	Escribir "INGRESE LA CANTIDAD DE TORNILLOS DEFECTUOSOS";
+	Leer tornillos2;
+	
+	Si tornillos>10000 y tornillos2<200 Entonces
+		Escribir "EL GRADO DE EFICIENCIA ES 8";
+	SiNo
+		Si tornillos<10000 y tornillos2<200 Entonces
+			Escribir "EL GRADO DE EFICIENCIA ES 6";
+		SiNo
+			Si tornillos>10000 y tornillos2>200 Entonces
+				Escribir "EL GRADO DE EFICIENCIA ES 7";
+			SiNo
+				Si tornillos<10000 y tornillos2>200 Entonces
+					Escribir "EL GRADO DE EFICIENCIA ES 5";
+				SiNo
+					
+				Fin Si
+			Fin Si
+		Fin Si
+	Fin Si
+
+
+EJERCICIOS PRACTICOS EXTRAS
+
+EJERCICIO 1: Solicitar al usuario que ingrese un valor entre 1 y 7. EL programa debe mostrar por pantalla
+un mensaje que indique a qué día de la semana corresponde. Considere que el número 1
+corresponde al día “Lunes”, y así sucesivamente.
+
+Definir num Como Entero;
+	Escribir "Ingrese un numero del 1 al 7";
+	Leer num;
+	
+	Segun num Hacer
+		1:
+			Escribir "LUNES";
+		2:
+			Escribir "MARTES";
+		3:
+			Escribir "MIERCOLES";
+		4:
+			Escribir "JUEVES";
+		5:
+			Escribir "VIERNES";
+		6:
+			Escribir "SABADO";
+		7:
+			Escribir "DOMINGO";
+		
+	Fin Segun
+
+EJERCICIO 2: Leer tres números que denoten una fecha (día, mes, año) y comprobar que sea una fecha
+válida. Si la fecha no es válida escribir un mensaje de error por pantalla. Si la fecha es
+válida se debe imprimir la fecha cambiando el número que representa el mes por su
+nombre. Por ejemplo: si se introduce 1 2 2006, se deberá imprimir “1 de febrero de 2006”.
+
+Definir dia,mes,ano Como Entero;
+	Escribir "Ingrese un numero de dia";
+	Leer dia;
+	Escribir "Ingrese un numero de mes";
+	Leer mes;
+	Escribir "Ingrese un numero de año";
+	Leer ano;
+	
+	Si dia>0 y dia<32  y mes>0 y mes<13  y ano>1300 Entonces
+		
+		Segun mes Hacer
+			1:
+				Escribir dia," de Enero de ",ano; 
+			2:
+				Escribir dia," de Febrero de ",ano; 
+			3:
+				Escribir dia," de Marzo de ",ano; 
+			4:
+				Escribir dia," de Abril de ",ano;
+			5:
+				Escribir dia," de Mayo de ",ano;
+			6:
+				Escribir dia," de Junio de ",ano;
+			7:
+				Escribir dia," de Julio de ",ano;
+			8:
+				Escribir dia," de Agosto de ",ano;
+			9:
+				Escribir dia," de Septiembre de ",ano;
+			10:
+				Escribir dia," de Octubre de ",ano;
+			11:
+				Escribir dia," de Noviembre de ",ano;
+			12:
+				Escribir dia," de Diciembre de ",ano;
+			
+		Fin Segun
+		
+		
+	SiNo
+		Escribir "ERROR";
+	Fin Si
+
+EJERCICIO 3: Hacer un algoritmo que lea un número por el teclado y determine si tiene tres dígitos.
+
+Definir num Como Entero;
+	Escribir "INGRESE UN NUMERO"; 
+	Leer num;
+	
+	Si num>99 y num<1000 Entonces
+		Escribir "Es un numero de 3 digitos";
+	SiNo
+		
+	Fin Si
+
+EJERCICIO 4: Si se compran menos de cinco llantas el precio es de $3000 cada una, si se compran
+entre 5 y 10 el precio es de $2500, y si se compran más de 10 el precio es $2000.
+Obtener la cantidad de dinero que una persona tiene que pagar por cada una de las
+llantas que compra, y el monto total que tiene que pagar por el total de la compra.
+
+Definir llantas,precioT Como Entero;
+	Escribir "Ingrese el total de llantas compradas"
+	Leer llantas
+	
+	Si llantas<5 Entonces
+		Escribir "El precio de cada una es $3000"
+		precioT=llantas*3000
+		Escribir "El precio total es de $",precioT
+	SiNo
+		Si llantas>=5 y llantas<=10 Entonces
+			Escribir "El precio de cada una es $2500"
+			precioT=llantas*2500
+			Escribir "El precio total es de $",precioT
+		SiNo
+			Si llantas>10 Entonces
+				Escribir "El precio de cada una es $2000"
+				precioT=llantas*2000
+				Escribir "El precio total es de $",precioT
+			SiNo
+				
+			Fin Si
+		Fin Si
+	Fin Si
+
+EJERCICIO 5: Realice un programa que, dado un año, nos diga si es bisiesto o no. Un año es bisiesto
+bajo las siguientes condiciones: Un año divisible por 4 es bisiesto y no debe ser divisible
+por 100. Si un año es divisible por 100 y además es divisible por 400, también resulta
+bisiesto. Nota: recuerde la función mod de PseInt
+
+Definir fecha Como Entero;
+	Escribir "INGRESE UN AÑO";
+	Leer fecha;
+	
+	Si fecha%4==0 y fecha%100<>0 o fecha%100==0 y fecha%400==0 Entonces
+		Escribir "ES BISIESTO";
+	SiNo
+		Escribir "NO ES BISIESTO";
+	Fin Si
+
+EJERCICIO 6: Una verdulería ofrece las manzanas con descuento según la siguiente tabla:
+
+No DE KILOS COMPRADOS % DESCUENTO
+0 – 2
+2.01 – 5
+5.01 – 10
+10.01 en adelante
+
+0%
+10%
+15%
+20%
+
+Determinar cuánto pagará una persona que compre manzanas en esa verdulería
+
+EJERCICIO 7: El promedio de los trabajos prácticos de un curso se calcula en base a cuatro notas de las
+cuales se elimina la nota menor y se promedian las tres notas más altas. Escriba un
+programa que determine cuál es la nota eliminada y el promedio de los trabajos prácticos
+de un estudiante.
+
+Definir nota1,nota2,nota3,nota4,promedio Como Real
+	Escribir "INGRESE LA PRIMER NOTA: "
+	Leer nota1
+	Escribir "INGRESE LA SEGUNDA NOTA: "
+	Leer nota2
+	Escribir "INGRESE LA TERCER NOTA: "
+	Leer nota3
+	Escribir "INGRESE LA CUARTA NOTA: "
+	Leer nota4
+	
+	
+	Si nota1>nota4 y nota3>nota4 y nota2>nota4 Entonces
+		promedio=(nota1+nota2+nota3)/3
+		Escribir "EL PROMEDIO ES: ",promedio
+		Escribir "LA NOTA ELIMINADA ES LA 4"
+	SiNo
+		
+		Si nota1>nota3 y nota2>nota3 y nota4>nota3 Entonces
+			promedio=(nota1+nota2+nota4)/3
+			Escribir "EL PROMEDIO ES: ",promedio
+			Escribir "LA NOTA ELIMINADA ES LA 3"
+		SiNo
+			
+			Si nota1>nota2 y nota3>nota2 y nota4>nota2 Entonces
+				promedio=(nota1+nota4+nota3)/3
+				Escribir "EL PROMEDIO ES: ",promedio
+				Escribir "LA NOTA ELIMINADA ES LA 2"
+			SiNo
+				Si nota2>nota1 y nota3>nota1 y nota4>nota1 Entonces
+					promedio=(nota4+nota2+nota3)/3
+					Escribir "EL PROMEDIO ES: ",promedio
+					Escribir "LA NOTA ELIMINADA ES LA 1"
+				SiNo
+					
+				Fin Si
+			Fin Si
+			
+		Fin Si
+		
+	Fin Si
+
+EJERCICIO 8: Una empresa tiene personal de distintas áreas con distintas condiciones de contratación y
+formas de pago. El departamento de contabilidad necesita calcular los sueldos semanales
+(lunes a viernes) en base a las 3 modalidades de sueldo:
+a) comisión
+b) salario fijo + comisión, y
+c) salario fijo
+a) Para la modalidad salario por comisión se debe ingresar el monto total de las ventas
+realizadas en la semana, y el 40% de ese monto total corresponde al salario del
+empleado.
+b) Para la condición de salario fijo + comisión, se debe ingresar el valor que se paga por
+hora, la cantidad de horas trabajadas semanalmente y el monto total de las ventas en
+esa semana. En este tipo de contrato las horas extras no están contempladas y se fija
+como máximo 40 horas por semana. La comisión por las ventas se calcula como 25%
+del valor de venta total.
+c) Finalmente, para la modalidad de salario fijo se debe ingresar el valor que se paga por
+hora y la cantidad de horas trabajadas en la semana. En el caso de exceder las 40
+horas semanales, las horas extras se deben pagar con un extra del 50% del valor de la
+hora. Realizar un menú de opciones para poder elegir el tipo de contrato que tiene un
+empleado.
+
+
+
+

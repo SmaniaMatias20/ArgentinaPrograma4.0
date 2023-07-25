@@ -1,0 +1,170 @@
+1. Escriba un programa que valide si una nota está entre 0 y 10, sino está entre 0 y 10 la nota
+se pedirá de nuevo hasta que la nota sea correcta.
+
+Definir nota Como Entero
+	Escribir "INGRESE UNA NOTA"
+	Leer nota
+	Mientras nota<0 o nota>10 Hacer
+		Escribir "INGRESE UNA NOTA"
+		Leer nota
+	Fin Mientras
+
+2. Escriba un programa en el cual se ingrese un valor límite positivo, y a continuación solicite
+números al usuario hasta que la suma de los números introducidos supere el límite inicial.
+
+Definir limite,num,bandera Como Entero
+	
+	Escribir "INGRESE UN NUMERO LIMITE"
+	Leer limite
+	
+	bandera=0
+	
+	Mientras bandera<=limite Hacer
+		Escribir "INGRESE UN NUMERO"
+		Leer num
+		bandera=bandera+num
+		
+	Fin Mientras
+
+
+3. Dada una secuencia de números ingresados por teclado que finaliza con un –1, por
+ejemplo: 5,3,0,2,4,4,0,0,2,3,6,0,......,-1; realizar un programa que calcule el promedio de los
+números ingresados. Suponemos que el usuario no insertará número negativos.
+
+Definir num,bandera,contador,Promedio Como Real
+	
+	num=0
+	contador=0
+	bandera=0
+	
+	Mientras num>=0 Hacer
+		Escribir "INGRESE UN NUMERO"
+		Leer num
+		Si num>=0 Entonces
+			bandera=bandera+num
+			contador=contador+1
+		SiNo
+			
+		Fin Si
+		
+		
+		
+	Fin Mientras
+	
+	Promedio=bandera/contador
+	Escribir "EL PROMEDIO ES: ",promedio
+
+
+
+4. Escriba un programa en el cual se ingrese un número y mientras ese número sea mayor
+de 10, se pedirá el número de nuevo.
+
+Definir num Como Real
+		
+	num=11
+	Mientras num>10 Hacer
+		Escribir "INGRESE UN NUMERO"
+		Leer num
+		
+	Fin Mientras
+
+
+5. Escriba un programa que solicite dos números enteros (mínimo y máximo). A continuación,
+se debe pedir al usuario que ingrese números enteros situados entre el máximo y mínimo.
+Cada vez que un número se encuentre entre ese intervalo, se sumara uno a una variable.
+El programa terminará cuando se escriba un número que no pertenezca a ese intervalo, y
+al finalizar se debe mostrar por pantalla la cantidad de números ingresados dentro del
+intervalo.
+
+Definir maximo,minimo,inter,contador Como Real
+	Escribir "Ingrese un numero minimo"
+	Leer minimo
+	Escribir "Ingrese un numero maximo"
+	Leer maximo
+	contador=0
+	Escribir "Ingrese un numero"
+	Leer inter
+	
+	
+	Mientras inter>minimo y inter<maximo Hacer
+		
+		Escribir "Ingrese un numero"
+		Leer inter
+		contador=contador+1
+		
+		
+		
+	Fin Mientras
+	
+	Escribir "La cantidad de numeros ingresados dentro del intervalo es: ",contador
+
+6. Escriba un programa que solicite al usuario números decimales mientras que el usuario
+escriba números mayores al primero que se ingresó. Por ejemplo: si el usuario ingresa
+como primer número un 3.1, y luego ingresa un 4, el programa debe solicitar un tercer
+número. El programa continuará solicitando valores sucesivamente mientras los valores
+ingresados sean mayores que 3.1, caso contrario, el programa finaliza.
+
+Definir num, bandera Como Real
+	Escribir "Ingresar un numero decimal"
+	Leer num
+	bandera=num
+	Escribir "Ingresar un numero decimal"
+	Leer num
+	
+	Mientras bandera<num Hacer
+		Escribir "Ingresar un numero decimal"
+		Leer num
+	Fin Mientras
+
+7. Calcular las calificaciones de un grupo de alumnos. La nota final de cada alumno se
+calcula según el siguiente criterio: la parte práctica vale el 10%; la parte de problemas vale
+el 50% y la parte teórica el 40%. El programa leerá el nombre del alumno, las tres notas
+obtenidas, mostrará el resultado por pantalla, y a continuación volverá a pedir los datos del
+siguiente alumno hasta que el nombre sea una cadena vacía. Las notas deben estar
+comprendidas entre 0 y 10, y si no están dentro de ese rango no se imprimirá el promedio
+y se mostrará un mensaje de error.
+
+Definir nombre Como Caracter
+	Definir notaFinal,practica,problemas,teorica, bandera Como Entero
+	
+	bandera=0
+	
+	Mientras bandera=0  Hacer
+		
+		Escribir "Ingrese nombre del alumno"
+		Leer nombre
+		
+		Si longitud(nombre)>0 Entonces
+			Escribir "Ingrese su nota practica"
+			Leer practica
+			Escribir "Ingrese su nota problemas"
+			Leer problemas
+			Escribir "Ingrese su nota teorica"
+			Leer teorica
+			
+			Si practica>=0 y practica<=10 y problemas>=0 y problemas<=10 y teorica>=0 y teorica<=10 Entonces
+				practica=practica*10/10
+				teorica=teorica*40/10
+				problemas=problemas*50/10
+				notaFinal=practica+teorica+problemas
+				
+				Escribir "La nota practica es: ",practica,"%"
+				Escribir "La nota teorica es: ",teorica,"%"
+				Escribir "La nota problema es: ",problemas,"%"
+				Escribir "El promedio final es: ",notaFinal,"%"
+			SiNo
+				Escribir "ERROR" 
+			Fin Si
+			
+		SiNo
+			bandera=1
+		Fin Si
+		
+		
+		
+	Fin Mientras
+
+8. Escribir un programa que calcule cuántos dígitos tiene un número entero positivo sin
+convertirlo a cadena (pista: se puede hacer dividiendo varias veces entre 10). Nota:
+investigar la función trunc().
+

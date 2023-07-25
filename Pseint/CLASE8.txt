@@ -1,0 +1,197 @@
+EJERCICIO 1: Teniendo en cuenta que la clave es “eureka”, escribir un programa que nos pida ingresar 
+una clave. Sólo se cuenta con 3 intentos para acertar, si fallamos los 3 intentos se deberá 
+mostrar un mensaje indicándonos que hemos agotado esos 3 intentos. Si acertamos la 
+clave se deberá mostrar un mensaje que indique que se ha ingresado al sistema 
+correctamente.
+
+Definir clave, clave2 Como Caracter;
+	Definir bandera Como Entero;
+	bandera=0;
+	clave="eureka";
+	
+	Repetir
+		Escribir "Ingresa la contraseña";
+		Leer clave2;
+		bandera=bandera+1;
+		
+		
+	Mientras Que clave2<>clave y bandera<3
+	
+	Si bandera<3 Entonces
+		Escribir "Contraseña correcta, ha ingresado al sistema";
+	SiNo
+		Escribir "Contraseña incorrecta";
+
+	Fin Si
+
+
+EJERCICIO 2: Escribir un programa que lea números enteros hasta teclear 0 (cero). Al finalizar el 
+programa se debe mostrar el máximo número ingresado, el mínimo, y el promedio de 
+todos ellos.
+Para poder lograr, por ejemplo, el máximo inicializaremos una variable en cero llamada 
+numeroMaximo. Luego iremos comparando cada número que se ingresa con esta variable. 
+Si es mayor reemplazaremos el valor de numeroMaximo. Por ejemplo, si 5 > 0 entonces el 
+máximo entre estos números será 5. Si luego ingreso el número 2, se evalúa 2 > 5 lo que 
+resultará falso y por lo tanto el valor 5 de numeroMaximo no se reemplaza. Una lógica 
+similar tendrá el mínimo.
+
+Definir num,numMax,numMin,promedio,bandera,acumulador,contador Como Real
+	numMin=0
+	numMax=0
+	bandera=0
+	acumulador=0
+	contador=0
+	promedio=0
+	
+	Repetir
+		Escribir "Ingresar un numero entero"
+		Leer num
+		
+		Si num=0 Entonces
+			bandera=1
+		SiNo
+			acumulador=acumulador+num
+			contador=contador+1
+			promedio=acumulador/contador
+			Si num>numMax Entonces
+				numMax=num
+			SiNo
+				Si !numMin<>0 Entonces
+					numMin=num
+				SiNo
+					Si num<numMin Entonces
+						numMin=num
+					SiNo
+						
+					Fin Si
+				Fin Si
+			Fin Si
+			
+		Fin Si	
+		
+	Mientras Que bandera=0
+	
+	Escribir "El numero maximo es: ", numMax
+	Escribir "El numero minimo es: ", numMin
+	Escribir "El promedio es: ", promedio
+
+EJERCICIO 3: Realizar un programa que solicite al usuario su código de usuario (un número entero 
+mayor que cero) y su contraseña numérica (otro número entero positivo). El programa no le 
+debe permitir continuar hasta que introduzca como código 1024 y como contraseña 4567. 
+El programa finaliza cuando ingresa los datos correctos.
+
+Definir usuario,clave Como Entero
+	
+	Repetir
+		Escribir "Ingrese su numero de usuario"
+		Leer usuario
+		Escribir "Ingrese su contraseña"
+		Leer clave
+		
+	Mientras Que clave<>4567 o usuario<>1024
+
+
+EJERCICIO 4: Se debe realizar un programa que:
+1º) Pida por teclado un número (entero positivo).
+2º) Pregunte al usuario si desea introducir o no otro número.
+3º) Repita los pasos 1º y 2º mientras que el usuario no responda n/N (no).
+4º) Muestre por pantalla la suma de los números introducidos por el usuario.
+
+Definir num,acumulador Como Entero
+	Definir respuesta Como Caracter
+	acumulador=0
+	
+	Repetir
+		Escribir "Ingrese un numero entero"
+		Leer num
+		acumulador=acumulador+num
+		Escribir "¿Desea ingresar otro numero?"
+		Leer respuesta
+	Mientras Que respuesta="si" o respuesta="SI"
+	
+	Escribir "La suma de los numeros introducidos por el usuario es de: ",acumulador
+
+
+EJERICIO 5: Hacer un algoritmo para calcular la media de los números pares e impares, sólo se 
+ingresará diez números.
+
+Definir num, numPar, numImpar, bandera, mediaPar, contPar, contImpar, mediaImpar Como real;
+	bandera=0;
+	numImpar=0;
+	numPar=0;
+	contImpar=0;
+	contPar=0;
+	
+	Repetir
+		Escribir "Ingrese un numero";
+		Leer num;
+		Si num%2=0 Entonces
+			numPar=numPar+num;
+			contPar=contPar+1;
+		SiNo
+			numImpar=numImpar+num;
+			contImpar=contImpar+1;
+		Fin Si
+		
+		bandera=bandera+1;
+	Mientras Que bandera<10
+	
+	mediaPar=numPar/contPar;
+	mediaImpar=numImpar/contImpar;
+	Escribir "La media de numeros pares es: ", mediaPar;
+	Escribir "La media de numeros impares es: ", mediaImpar;
+
+
+EJERCICIO 6: Se pide escribir un programa que calcule la suma de los N primeros números pares. Es 
+decir, si ingresamos el número 5 como valor de N, el algoritmo nos debe realizar la suma 
+de los siguientes valores: 2+4+6+8+10.
+
+Definir num,suma,bandera Como Entero;
+	suma=0;
+	bandera=0;
+
+	Repetir
+		Escribir "Ingresar un numero entero";
+		Leer num;
+		suma=num*(num+1);
+		Escribir "La suma de los ",num," primeros numeros pares es: ",suma;
+		bandera=bandera+1;
+		
+	Mientras Que bandera<10 
+
+EJERCICIO 7: Programar un juego donde la computadora elige un número al azar entre 1 y 10, y a 
+continuación el jugador tiene que adivinarlo. La estructura del programa es la siguiente:
+1º) El programa elige al azar un número n entre 1 y 10. 
+2º) El usuario ingresa un número x. 
+3º) Si x no es el número exacto, el programa indica si n es más grande o más pequeño que 
+el número ingresado.
+4º) Repetimos desde 2) hasta que x sea igual a n. 
+El programa tiene que imprimir los mensajes adecuados para informarle al usuario qué 
+hacer y qué pasó hasta que adivine el número. 
+NOTA: Para generar un número aleatorio entre 1 y 10 se puede utilizar la función 
+Aleatorio(limite_inferior, limite_superior) de PseInt.
+
+Definir clave,num Como Entero;
+
+	clave=Aleatorio(1,10);
+	Escribir "Intente adivinar el numero del 1 al 10";
+	
+	Repetir
+		
+		Leer num;
+		
+		Si num<>clave Entonces
+			Si num>clave Entonces
+				Escribir "El numero ingresado es mas grande";
+			SiNo
+				Escribir "El numero ingresado es mas pequeño";
+			Fin Si
+		SiNo
+			
+		Fin Si
+		
+	Mientras Que num<>clave
+	
+	Escribir "El numero ingresado es correcto";
+
+

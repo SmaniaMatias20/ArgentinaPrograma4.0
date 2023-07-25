@@ -1,0 +1,91 @@
+1. Realizar un procedimiento que permita intercambiar el valor de dos variables de tipo entero.
+La variable A, debe terminar con el valor de la variable B.
+
+SubAlgoritmo intercambio()
+	Definir a,b,c Como Entero
+	Escribir "Ingrese el valor de A"
+	Leer a
+	Escribir "Ingrese el valor de B"
+	Leer b
+	
+	c=a
+	a=b
+	b=c
+	
+	Escribir "El valor de A es: " a
+	Escribir "El valor de B es: " b
+	
+FinSubAlgoritmo
+
+Algoritmo sin_titulo
+	
+	intercambio()
+	
+FinAlgoritmo
+
+2. Crear un procedimiento que calcule la temperatura media de un día a partir de la temperatura
+máxima y mínima. Crear un programa principal, que, utilizando un procedimiento, vaya pi-
+diendo la temperatura máxima y mínima de n días y vaya mostrando la media de cada día. El
+programa pedirá el número de días que se van a introducir.
+
+SubAlgoritmo clima()
+	Definir i,dias,minima,maxima,media Como Real
+	Escribir "Ingrese la cantidad de dias"
+	Leer dias
+	Para i=1 Hasta dias Con Paso 1 Hacer
+		Escribir "Ingrese la temperatura maxima"
+		Leer maxima
+		Escribir "Ingrese la temperatura minima"
+		Leer minima
+		media=(maxima+minima)/2
+		Escribir "La media de temperatura del dia " i " es: " media
+		
+	Fin Para
+	
+FinSubAlgoritmo
+
+Algoritmo sin_titulo
+	
+	clima()
+	
+FinAlgoritmo
+
+3. Realizar un procedimiento que permita realizar la división entre dos números y muestre el co-
+ciente y el resto utilizando el método de restas sucesivas.
+El método de división por restas sucesivas consiste en restar el dividendo con el divisor hasta
+obtener un resultado menor que el divisor, este resultado es el residuo, y el número de restas
+realizadas es el cociente. Por ejemplo: 50 / 13:
+50 – 13 = 37 una resta realizada
+37 – 13 = 24 dos restas realizadas
+24 – 13 = 11 tres restas realizadas
+dado que 11 es menor que 13, entonces: el residuo es 11 y el cociente es 3.
+
+5. Crea un procedimiento “convertirEspaciado”, que reciba como argumento un texto y muestra
+una cadena con un espacio adicional tras cada letra.
+Por ejemplo, “Hola, tú” devolverá “H o l a , t ú “. Crea un programa principal donde se use
+dicho procedimiento.
+
+6. Realizar un subproceso que reciba una letra y muestre un mensaje si esa letra esta entre las
+letras “M” y “T”. Recordar que Pseint le da un valor numérico a cada letra a través del Código
+Ascii, lo que nos deja usar operadores relacionales con letras y cadenas.
+
+7. Crear un programa que dibuje una escalera de números, donde cada línea de números co-
+mience en uno y termine en el número de la línea. Solicitar la altura de la escalera al usuario al
+comenzar. Ejemplo: si se ingresa el número 3:
+1
+12
+123
+
+8. Realice un algoritmo que solicite al usuario una fecha y muestre por pantalla la fecha anterior.
+Para ello se deberá utilizar un procedimiento llamado diaAnterior que reciba una fecha repre-
+sentada a través de tres enteros dia, mes y anio, y retorne la fecha anterior. Puede asumir que
+dia, mes y anio representan una fecha válida. Realice pruebas de escritorio para los valores
+dia=5, mes=10, anio=2012 y para dia=1, mes=3, anio=2004.
+
+9. Diseñar un procedimiento que reciba una frase, y el programa remueva todas las vocales re-
+petidas. Al final el procedimiento mostrará la frase final.
+Por ejemplo:
+Entrada: “Habia una vez un barco”
+Salida: “Habi un vez n brco"
+Se marcan en rojo las repetidas sólo para explicar la consigna. Las vocales ‘e’, ‘i’ y ‘o’ que-
+dan al no estar repetidas.

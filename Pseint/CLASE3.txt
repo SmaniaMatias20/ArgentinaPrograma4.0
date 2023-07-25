@@ -1,0 +1,203 @@
+EJERCICIO 1: Un colegio desea saber qué porcentaje de niños y qué porcentaje de niñas hay en el curso 
+actual. Diseñar un algoritmo para este propósito. Recuerda que para calcular el porcentaje 
+puedes hacer una regla de 3 simple. El programa debe solicitar al usuario que ingrese la 
+cantidad total de niños, y la cantidad total de niñas que hay en el curso. 
+
+Definir nenes,nenas,total,p1,p2 Como Real
+	Escribir "Ingrese la cantidad de NENES: "
+	Leer nenes
+	Escribir "Ingrese la cantidad de NENAS: "
+	Leer nenas
+	total= nenes+nenas
+	p1= nenes*100/total
+	p2= nenas*100/total
+	Escribir "El porcentaje de niños es: ",p1,"%" 
+	Escribir "El porcentaje de niñas es: ",p2,"%"
+
+EJERCICIO 2: Solicitar al usuario que ingrese la base y altura de un rectángulo, y calcular y mostrar por 
+pantalla el área y perímetro del mismo
+area = base * altura
+perimetro = 2 * altura + 2 * base.
+
+Definir Base,Altura,Perimetro,Area Como Real
+	Escribir "Ingrese la BASE del rectangulo"
+	Leer Base
+	Escribir "Ingrese la ALTURA del rectangulo"
+	Leer Altura
+	Area= Base*Altura
+	Perimetro= 2*Altura + 2*Base
+	Escribir "El AREA del rectangulo es de: ", Area
+	Escribir "El PERIMETRO del rectangulo es de: ", Perimetro
+
+EJERCICIO 3: Escribir un programa que calcule el volumen de un cilindro. Para ello se deberá solicitar al 
+usuario que ingrese el radio y la altura. Mostrar el resultado por pantalla. 
+volumen = π * radio2 * altura 
+
+Definir Radio,Altura,Volumen Como Real
+	Escribir "Ingrese el RADIO del circulo"
+	Leer Radio
+    Escribir "Ingrese la ALTURA del circulo"
+	Leer Altura
+	Volumen= PI*Radio*Radio*Altura
+	Escribir "El VOLUMEN del circulo es: ", Volumen
+
+EJERCICIO 4: A partir de una conocida cantidad de días que el usuario ingresa a través del teclado, escriba 
+un programa para convertir los días en horas, en minutos y en segundos. Por ejemplo
+1 día = 24 horas = 1440 minutos = 86400 segundos
+
+Definir dias,horas,minutos,seg Como Entero
+	Escribir "Ingrese la cantidad de dias"
+	Leer dias
+	horas= dias*24
+	minutos=horas*60
+	seg=minutos*60
+	Escribir "La cantidad de HORAS es: ",horas
+	Escribir "La cantidad de MINUTOS es: ",minutos
+	Escribir "La cantidad de SEGUNDOS es: ",seg
+
+EJERCICIO 5:  Crear un programa que solicite al usuario que ingrese el precio de un producto al inicio del 
+año, y el precio del mismo producto al finalizar el año. El programa debe calcular cuál fue el 
+porcentaje de aumento que tuvo ese producto en el año y mostrarlo por pantalla.
+
+Definir precio1,precio2,porc,difer Como Real
+	Escribir "Ingresa el precio del producto"
+	Leer precio1
+	Escribir "Ingresa el precio del producto a fin de año"
+	Leer precio2
+	difer=precio2-precio1
+	porc=difer*100/precio1
+	Escribir "El porcentaje de aumento es: ",porc "%"
+
+Función TRUNC(x)
+ 
+La función trunc recibe un número y devuelve la parte entera de un numero removiendo 
+cualquier digito decimal (dígitos situados después de la coma). Trunc siempre redondea hacia el 
+valor inferior.
+ 
+Ejemplo: 
+Escribir "Truncamos 3.7: " trunc(3.7) Nos mostraría: Truncamos 3.7: 3 
+
+Esto también lo podemos usar en variables, una variable recibe el numero truncado así́ya lo 
+tenemos para usar cuando lo necesitamos y a la función también le podemos pasar un variable 
+con el numero a truncar.
+
+
+EJERCICIO COOPERATIVO: Ingrese un número de tres cifras y muestra la unidad, decena y la centena.
+Por ejemplo, si el número ingresado por pantalla es 123 el programa debe mostrar:
+
+CENTENA: 1
+DECENA: 2
+UNIDAD: 3
+
+Definir num,c,d,u, bandera Como Real
+	Escribir "Ingrese un numero de tres cifras"
+	Leer num
+	c=num/100
+	bandera=num%100
+	d= bandera/10
+	u= num - (trunc(c)*100+trunc(d)*10)
+	Escribir "CENTENA: ", trunc(c)
+	Escribir "DECENA: ", trunc(d)
+	Escribir "UNIDAD: ", u
+
+EJERCICIOS DE REFUERZO
+
+1. Escribir un programa que pregunte al usuario su nombre, y luego lo salude.
+
+Definir nombre Como Caracter
+	Escribir "¿Cual es su nombre?"
+	Leer nombre
+	Escribir "¡Hola "+nombre+ "!"
+
+2. Calcular el cambio de monedas en dólares y euros al ingresar cierta cantidad de dinero en 
+pesos.
+
+Definir pesos,dolares,euros Como Reales
+	Escribir "Ingrese la cantidad de PESOS"
+	Leer pesos
+	Escribir "La cantidad de PESOS es: ", pesos
+	dolares=pesos/365
+	euros=pesos/373
+	Escribir "La cantidad de DOLARES es: ", dolares
+	Escribir "La cantidad de EUROS es: ", euros
+
+3. Hacer un programa que calcule el salario de un empleado, si se descuenta el 20% de su 
+salario bruto.
+
+Definir salario, salarioFinal Como Real
+	Escribir "Ingrese su salario"
+	Leer salario
+	salarioFinal=salario*0.80
+	Escribir "El salario final del empleado es: ","$",salarioFinal
+
+4. Hacer un programa que ingrese por teclado un número total de segundos y que luego 
+pueda mostrar la cantidad de horas, minutos y segundos que existen en el valor 
+ingresado.
+
+Definir segtotales,minutos,horas,seg,bandera Como Real
+	Escribir "Ingrese la cantidad de SEGUNDOS: "
+	Leer segtotales
+	horas=segtotales/3600
+	bandera=segtotales%3600
+	minutos=bandera/60
+	seg=segtotales-(trunc(horas)*3600+trunc(minutos)*60)
+	
+	Escribir "La cantidad de HORAS es: ",trunc(horas)
+	Escribir "La cantidad de MINUTOS es: ",trunc(minutos)
+	Escribir "La cantidad de SEGUNDOS es: ",seg
+
+5. Mostrar el área y perímetro de un rombo.
+
+6. Mostrar el área y perímetro de un hexágono.
+
+7. Mostrar el área y perímetro de un paralelogramo.
+
+8. Escribir un programa que convierta un valor dado en grados Fahrenheit a grados Celsius.
+
+9. Un vendedor recibe un sueldo base más un 10% extra por comisión de sus ventas, el 
+vendedor desea saber cuánto dinero obtendrá por concepto de comisiones por las tres 
+ventas que realiza en el mes y el total que recibirá en el mes tomando en cuenta su sueldo 
+base y comisiones.
+
+10. Una tienda ofrece un descuento del 15% sobre el total de la compra y un cliente desea 
+saber cuánto deberá pagar finalmente por su compra.
+
+Definir precio,precioF Como Real
+	Escribir "Ingrese el precio del articulo"
+	Leer precio
+	precioF=precio*0.85
+	Escribir "El precio final del producto es: ",precioF
+
+11. Un alumno desea saber cuál será su calificación final en la materia de Algoritmos. Dicha 
+calificación se compone de los siguientes porcentajes:
+a. 55% del promedio de sus tres calificaciones parciales.
+b. 30% de la calificación del examen final.
+c. 15% de la calificación de un trabajo final.
+
+12. Pide al usuario dos números y muestra la “distancia” entre ellos (el valor absoluto de su 
+diferencia, de modo que el resultado sea siempre positivo).
+
+13. Realizar un algoritmo que lea un número y que muestre su raíz cuadrada y su raíz cúbica. 
+PSeInt no tiene ninguna función predefinida que permita calcular la raíz cúbica, ¿Cómo se 
+puede calcular?
+
+14. Dado un número de dos cifras, diseñe un algoritmo que permita obtener el número 
+invertido. Ejemplo, si se introduce 23 que muestre 32.
+
+Definir num,num2,bandera, bandera2 Como Real;
+	Escribir "Ingresa un numero de dos cifras";
+	leer num;
+	bandera=num/10;
+	bandera2=num%10;
+	Escribir trunc(bandera2),trunc(bandera);
+
+15. Un ciclista parte de una ciudad A a las HH horas, MM minutos y SS segundos. El tiempo de 
+viaje hasta llegar a otra ciudad B es de T segundos. Escribir un algoritmo que determine la 
+hora de llegada a la ciudad B.
+
+
+
+
+
+
+

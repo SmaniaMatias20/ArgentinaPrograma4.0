@@ -1,0 +1,186 @@
+
+EJERCICIO 1: Realiza un programa que sólo permita introducir los caracteres ‘S’ y ‘N’. Si el usuario
+ingresa alguno de esos dos caracteres se deberá de imprimir un mensaje por pantalla que
+diga “CORRECTO”, en caso contrario, se deberá imprimir “INCORRECTO”.
+
+Definir letra Como Caracter;
+	Escribir "Ingrese una letra";
+	Leer letra;
+	
+	Si letra=="S" O letra=="N" Entonces
+		Escribir "CORRECTO";
+	SiNo
+		Escribir "INCORRECTO";
+	Fin Si
+
+EJERCICIO 2: Realizar un programa que pida un número y determine si ese número es par o impar.
+Mostrar en pantalla un mensaje que indique si el número es par o impar. (para que un
+número sea par, se debe dividir entre dos y su resto debe ser igual a 0). Nota: investigar
+la función mod de PseInt.
+
+Definir num Como Real;
+	Escribir "Ingrese un numero";
+	Leer num;
+	
+	Si num%2==0 Entonces
+		Escribir "ES PAR";
+	SiNo
+		Escribir "ES IMPAR";
+	Fin Si
+
+EJERCICIO 3: Realizar un programa que pida introducir solo frases o palabras de 6 caracteres. Si el
+usuario ingresa una frase o palabra de 6 caracteres se deberá de imprimir un mensaje por
+pantalla que diga “CORRECTO”, en caso contrario, se deberá imprimir “INCORRECTO”.
+Nota: investigar la función Longitud() de PseInt.
+
+Definir frase Como Cadena;
+	Escribir "Ingrese una frase";
+	Leer frase;
+	
+	Si Longitud(frase)==6 Entonces
+		Escribir "CORRECTO";
+	SiNo
+		Escribir "INCORRECTO";
+	Fin Si
+
+EJERCICIO 4: Realizar un programa que pida una frase o palabra y si la frase o palabra es de 4
+caracteres de largo, el programa le concatenara un signo de exclamación al final, y si no
+es de 4 caracteres el programa le concatenara un signo de interrogación al final. El
+programa mostrará después la frase final. Nota: investigar la función Longitud() y
+Concatenar() de PseInt.
+
+Definir frase Como Cadena;
+	Escribir "Ingrese una palabra";
+	Leer frase; 
+	
+	
+	Si Longitud(frase)==4 Entonces
+		Escribir concatenar(frase,"!");
+	SiNo
+		Escribir Concatenar(frase,"?");
+	Fin Si
+
+EJERCICIO 5: Escriba un programa que pida 3 notas y valide si esas notas están entre 1 y 10. Si están
+entre esos parámetros se debe poner en verdadero una variable de tipo lógico y si no
+ponerla en falso. Al final el programa debe decir si las 3 notas son correctas usando la
+variable de tipo lógico.
+
+Definir notaA,notaB,notaC Como Real;
+	Definir var Como Logico;
+	Escribir "Ingrese la primera nota";
+	Leer notaA;
+	Escribir "Ingrese la segunda nota";
+	Leer notaB;
+	Escribir "Ingrese la tercera nota";
+	Leer notaC;
+	
+	var= notaA>=1 Y notaA<=10 y notaB>=1 Y notaB<=10 y notaC>=1 Y notaC<=10;
+	
+	Escribir var;
+
+EJERCICIO 6: Escriba un programa que pida una frase o palabra y valide si la primera letra de esa frase
+es una ‘A’. Si la primera letra es una ‘A’, se deberá de imprimir un mensaje por pantalla
+que diga “CORRECTO”, en caso contrario, se deberá imprimir “INCORRECTO”. Nota:
+investigar la función Subcadena de PseInt.
+
+Definir frase Como Cadena;
+	Escribir "Ingrese una frase";
+	Leer frase;
+	
+	Si Subcadena(frase,0,0)=="a" o Subcadena(frase,0,0)=="A" Entonces
+		Escribir "VERDADERO";
+	SiNo
+		Escribir "FALSO";
+	Fin Si
+
+EJERCICIO 7: Continuando el ejercicio anterior, ahora se pedirá una frase o palabra y se validara si la
+primera letra de la frase es igual a la última letra de la frase. Se deberá de imprimir un
+mensaje por pantalla que diga “CORRECTO”, en caso contrario, se deberá imprimir
+“INCORRECTO”.
+
+Definir frase Como Cadena;
+	Definir var Como Entero;
+	Escribir "Ingrese una frase";
+	Leer frase;
+	var=Longitud(frase)-1;
+	
+	
+	Si Subcadena(frase,0,0)==Subcadena(frase,var,var) Entonces
+		Escribir "CORRECTO";
+	SiNo
+		Escribir "INCORRECTO";
+	Fin Si
+	
+	/// a0 r1 g2 e3 n4 t5 i6 n7 a8 LA LONGITUD ES "9" POR ESO LE RESTAMOS 1
+
+
+EJERCICIOS EXTRAS
+
+1. Realizar un programa que pida tres notas y determine si un alumno aprueba o reprueba un
+curso, sabiendo que aprobará el curso si su promedio de tres calificaciones es mayor o
+igual a 70; y reprueba en caso contrario.
+
+Definir nota1,nota2,nota3,promedio Como Real
+	Escribir "Ingrese la primer nota"
+	Leer nota1
+	Escribir "Ingrese la segunda nota"
+	Leer nota2
+	Escribir "Ingrese la tercer nota"
+	Leer nota3
+	promedio=(nota1+nota2+nota3)/3
+	
+	Si promedio>=70 Entonces
+		Escribir "APROBADO"
+	SiNo
+		Escribir "DESAPROBADO"
+	Fin Si
+
+2. Una tienda ofrece para los meses de septiembre, octubre y noviembre un descuento del
+10% sobre el total de la compra que realiza un cliente. Solicitar al usuario que ingrese un
+mes y el importe de la compra. El programa debe calcular cuál es el monto total que se
+debe cobrar al cliente e imprimirlo por pantalla.
+
+Definir mes Como Caracter
+	Definir importe Como Real
+	Escribir "Ingrese el IMPORTE de la compra"
+	Leer importe
+	Escribir "Ingrese el MES de la compra"
+	Leer mes
+	
+	Si mes=="septiembre" o mes=="octubre" o mes=="noviembre" Entonces
+		importe=importe*0.90
+		Escribir "El importe de la compra es: ", importe
+	SiNo
+		Escribir "El importe de la compra es: ",importe
+	Fin Si
+
+3. Solicitar al usuario que ingrese dos números enteros y determinar si ambos son pares o
+impares. Mostrar en pantalla un mensaje que indique “Ambos números son pares” siempre
+y cuando cumplan con la condición. En caso contrario se deberá imprimir el siguiente
+mensaje “Los números no son pares, o uno de ellos no es par”.
+Nota: investigar la función mod de PseInt.
+
+Definir num1,num2 Como Real
+	Escribir "Ingrese el primer numero"
+	Leer num1
+    Escribir "Ingrese el segundo numero"
+	Leer num2
+	
+	Si num1%2==0 y num2%2==0 Entonces
+		Escribir "AMBOS NUMEROS SON PARES"
+	SiNo
+		Escribir "LOS NUMEROS NO SON PARES, UNO DE ELLOS NO ES PAR"
+	Fin Si
+	
+
+4. La empresa “Te llevo a todos lados” está destinada al alquiler de autos y tiene un sistema
+de tarifa que consiste en cobrar el alquiler por hora. Si el cliente devuelve el auto dentro
+de las 2 horas de uso el valor que corresponde pagar es de $400 pesos y la nafta va de
+regalo. Cuando el cliente regresa a la empresa pasadas las 2 horas, se ingresan la
+cantidad de litros de nafta gastados y el tiempo transcurrido en horas. Luego, se le cobra
+40 pesos por litro de nafta gastado, y la hora se fracciona en minutos, cobrando un total
+de $5,20 el minuto de uso. Realice un programa que permita registrar esa información y el
+total a pagar por el cliente.
+
+
+

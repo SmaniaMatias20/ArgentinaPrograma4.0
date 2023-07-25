@@ -1,0 +1,266 @@
+
+
+1. Realizar un programa que rellene un vector con 5 valores ingresados por el usuario y los
+muestre por pantalla.
+
+Dimension ejemploArreglo(5)
+	Definir ejemploArreglo,i Como Entero
+	
+	Para i=0 Hasta 4 Con Paso 1 Hacer
+		Escribir "Ingresar un numero"
+		Leer ejemploArreglo(i)
+	Fin Para
+	
+	Para i=0 Hasta 4 Con Paso 1 Hacer
+		Escribir ejemploArreglo(i)
+	Fin Para
+
+2. Realizar un programa que lea 10 números reales por teclado, los almacene en un arreglo y
+muestre por pantalla la suma, resta y multiplicación de todos los números ingresados al arre-
+glo.
+
+Dimension ejemploArreglo(10)
+	Definir ejemploArreglo,mult,acumulador,i,resta Como Real
+	resta=0
+	acumulador=0
+	mult=1
+
+	Escribir "Ingresar 10 numeros"
+	
+	Para i=0 Hasta 9 Con Paso 1 Hacer
+		Leer ejemploArreglo(i)
+	Fin Para
+	
+	Para i=0 Hasta 9 Con Paso 1 Hacer
+		acumulador=acumulador+ejemploArreglo(i)
+		mult=mult*ejemploArreglo(i)
+		resta=resta-ejemploArreglo(i)
+	Fin Para
+	
+	Escribir "La suma de todos los numeros es: " acumulador
+	Escribir "La multiplicacion de todos los numeros es: " mult
+	Escribir "La resta de todos los numeros es: " resta
+
+3. Realizar un programa que rellene un vector de tamaño N, con valores ingresados por el usua-
+rio. A continuación, se debe buscar un elemento dentro del arreglo (el número a buscar tam-
+bién debe ser ingresado por el usuario). El programa debe indicar la posición donde se en-
+cuentra el valor. En caso de que el número se encuentre repetido dentro del arreglo se deben
+imprimir todas las posiciones donde se encuentra ese valor.
+Finalmente, en caso de que el número a buscar no está adentro del arreglo se debe mostrar
+un mensaje.
+
+Definir ejemploArreglo,i,num,nume,contador Como Entero
+	contador=0
+	Escribir "¿Cuantos numeros va a ingresar?"
+	Leer num
+	Dimension ejemploArreglo(num)
+	
+	Para i=0 Hasta num-1 Con Paso 1 Hacer
+		Escribir "Ingrese un numero"
+		Leer ejemploArreglo(i)
+	Fin Para
+	
+	Escribir "Ingrese un numero a buscar dentro del arreglo"
+	Leer nume
+	
+	Para i=0 Hasta num-1 Con Paso 1 Hacer
+		Si nume==ejemploArreglo(i) Entonces
+			Escribir "La posicion del numero " ejemploArreglo(i) " se encuentra en la posicion: " i+1 
+			contador=1
+		SiNo
+			
+		Fin Si
+	Fin Para
+	
+	Si contador==0 Entonces
+		Escribir "No se encontró el numero dentro del arreglo"
+	SiNo
+		
+	Fin Si
+
+4. Realizar un programa con el siguiente menú y le pregunte al usuario que quiere hacer hasta
+que ingrese la opción Salir:
+A. Llenar Vector A. Este vector es de tamaño N y se debe llenar de manera aleatoria
+usando la función Aleatorio(valorMin, valorMax) de PseInt.
+B. Llenar Vector B. Este vector también es de tamaño N y se llena de manera aleatoria.
+C. Llenar Vector C con la suma de los vectores A y B. La suma se debe realizar elemento
+a elemento. Ejemplo: C = A + B
+D. Llenar Vector C con la resta de los vectores B y A. La resta se debe realizar elemento a
+elemento. Ejemplo: C = B - A
+E. Mostrar. Esta opción debe permitir al usuario decidir qué vector quiere mostrar: Vector
+A, B, o C.
+F. Salir.
+NOTA: El rango de los números aleatorios para los Vectores será de [-100 a 100]. La longitud
+para todos los vectores debe ser la misma, por lo tanto, esa información sólo se solicitará una
+vez.
+
+5. Realizar un programa que rellene un vector de tamaño N, con valores ingresados por el usua-
+rio. A continuación, se deberá crear una función que reciba el vector y devuelva el valor más
+grande del vector.
+
+Funcion numeroMayor <- numMayor ( vector,cantidad )
+	Definir i,bandera Como Entero
+	bandera=0
+	Para i=0 Hasta cantidad-1 Con Paso 1 Hacer
+		Si vector(i)>bandera Entonces
+			bandera=vector(i)
+		SiNo
+			
+		Fin Si
+		
+	Fin Para
+	
+	Escribir bandera
+	
+Fin Funcion
+
+Algoritmo sin_titulo
+
+	Definir ejemploArreglo,num,i Como Entero
+	Escribir "Ingrese el tamaño del vector"
+	Leer num
+	Dimension ejemploArreglo(num)
+	Escribir "Ingrese " num " numeros"
+	
+	Para i=0 Hasta num-1 Con Paso 1 Hacer
+		Leer ejemploArreglo(i)
+	Fin Para
+	
+	Escribir "El numero mayor dentro del vector es: " numMayor(ejemploArreglo,num)
+	
+FinAlgoritmo
+
+7. Crear un subproceso que rellene dos arreglos de tamaño n, con números aleatorios. Después,
+hacer una función que reciba los dos arreglos y diga si todos sus valores son iguales o no. La
+función debe devolver el resultado de esta validación, para mostrar el mensaje en el algoritmo.
+Nota: recordar el uso de las variables de tipo lógico.
+
+Funcion Igualdad <- numerosIguales (vectorA,vectorB,numA,numB)
+	
+	Definir Log,LogB Como Logico
+	Definir i,bandera,banderaB Como Entero
+	bandera=vectorA(0)
+	banderaB=vectorB(0)
+	Log=Verdadero
+	LogB=Verdadero
+	
+	Para i=0 Hasta numA-1 Con Paso 1 Hacer
+		Si vectorA(i)<>bandera Entonces
+			Log=Falso
+		SiNo
+			
+		Fin Si
+	Fin Para
+	
+	Para i=0 Hasta numB-1 Con Paso 1 Hacer
+		Si vectorB(i)<>bandera Entonces
+			LogB=Falso
+		SiNo
+			
+		Fin Si
+	Fin Para
+	
+	Escribir "¿Los numeros del primer vector son todos iguales?"
+	Escribir Log
+	Escribir "¿Los numeros del segundo vector son todos iguales?"
+	Escribir LogB
+	
+Fin Funcion
+
+Funcion Validacion()
+	
+	Definir vectorA,vectorB,numA,numB,i Como Entero
+	
+	Escribir "Ingrese el tamaño del primer vector"
+	Leer numA
+	Escribir "Ingrese el tamaño del segundo vector"
+	Leer numB
+	
+	Dimension vectorA(numA),vectorB(numB)
+	
+	Escribir "Ingrese " numA " numeros del primer vector"
+	
+	Para i=0 Hasta numA-1 Con Paso 1 Hacer
+		Leer vectorA(i)
+	Fin Para
+	
+	Escribir "Ingrese " numB " numeros del segundo vector"
+	
+	Para i=0 Hasta numB-1 Con Paso 1 Hacer
+		Leer vectorB(i)
+	Fin Para
+	
+	Escribir numerosIguales(vectorA,vectorB,numA,numB)
+	
+Fin Funcion
+
+
+Algoritmo Validaciones 
+	
+	Validacion()
+	
+FinAlgoritmo
+
+
+EJERCICIOS EXTRA
+
+1. Realizar un programa que rellene dos vectores al mismo tiempo, con 5 valores aleatorios y los
+muestre por pantalla.
+
+Algoritmo sin_titulo
+	
+	Definir vectorA, vectorB, i Como Entero
+	Dimension vectorA(5),vectorB(5)
+	
+	Para i=0 Hasta 4 Con Paso 1 Hacer
+		vectorA(i)=azar(1000)
+		vectorB(i)=azar(1000)
+		Escribir vectorA(i)
+		Escribir vectorB(i)
+	Fin Para
+
+FinAlgoritmo
+
+2. Realizar un programa que rellene un vector de tamaño N, con valores ingresados por el
+usuario y muestre por pantalla el promedio de la suma de todos los valores ingresados.
+
+Algoritmo ejerciciosExtras
+	
+	Definir vector,i,n,acumulador,promedio Como Real
+	acumulador=0
+	promedio=0
+	Escribir "¿De que tamaño es el vector?"
+	Leer n
+	Dimension vector(n)
+	Escribir "Ingrese " n " numeros"
+	Para i=0 Hasta n-1 Con Paso 1 Hacer
+		Leer vector(i)
+		acumulador=acumulador+vector(i)
+		
+	Fin Para
+	
+	promedio=acumulador/n
+	Escribir "El promedio de todos los numeros ingresados al vector es: " promedio
+
+FinAlgoritmo
+
+3. Crear dos vectores que tengan el mismo tamaño (el tamaño se pedirá por teclado) y
+almacenar en uno de ellos nombres de personas como cadenas. En el segundo vector se
+debe almacenar la longitud de cada uno de los nombres (para ello puedes usar la función
+Longitud() de PseInt). Mostrar por pantalla cada uno de los nombres junto con su longitud.
+
+4. Crear un vector que contenga 100 notas de 100 supuestos estudiantes, con valores entre 0 y
+20 generadas aleatoriamente mediante el uso de la función azar() o aleatorio() de PseInt.
+Luego, de acuerdo a las notas contenidas, el programa debe indicar cuántos estudiantes son:
+
+a) Deficientes 0-5
+b) Regulares 6-10
+c) Buenos 11-15
+d) Excelentes 16-20
+
+6. Crear una función que devuelva la diferencia que hay entre el valor más chico de un arreglo y
+su valor más grande.
+
+7. Programe una función que calcule el producto de un arreglo de números enteros. Para esto
+imagine, por ejemplo, que para un vector V de tamaño 4, el producto de todos los valores es
+igual a (V[1]*V[2]*V[3]*V[4])

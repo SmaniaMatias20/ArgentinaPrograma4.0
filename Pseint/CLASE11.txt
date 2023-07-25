@@ -1,0 +1,174 @@
+
+
+1. Realizar un programa que lea 5 números (comprendidos entre 1 y 20) e imprima el número
+ingresado seguido de tantos asteriscos como indique su valor. Por ejemplo:
+5 *****
+3 ***
+11 ***********
+2 **
+9 *********
+
+Definir num,i,j Como Entero
+	
+	
+	Para i=1 Hasta 5 Con Paso 1 Hacer
+		
+		Escribir "Ingrese un numero"
+		Leer num
+		
+		Si num>=1 y num<=20 Entonces
+			
+			Escribir Sin Saltar num
+			
+			Para j=1 Hasta num Con Paso 1 Hacer
+				
+				
+				Escribir Sin Saltar " *"
+				
+			Fin Para
+			
+			
+		SiNo
+			
+			i=6
+			
+		Fin Si
+		
+	Fin Para
+
+
+2. Escribir un programa que lea un número entero y devuelva el número de dígitos que
+componen ese número. Por ejemplo, si introducimos el número 12345, el programa
+deberá devolver 5. Calcular la cantidad de dígitos matemáticamente utilizando el operador
+de división. Nota: recordar que las variables de tipo entero truncan los números o
+resultados.
+
+Definir num,cont Como Entero
+	cont=0
+	
+	Escribir "Ingrese un numero"
+	Leer num
+	
+	Mientras num<>0 Hacer
+		num=trunc(num/10)
+		cont=cont+1
+	Fin Mientras
+	
+	Escribir "La cantidad de digitos es: ", cont
+
+
+3. Necesitamos crear un sistema para una máquina de reciclaje de botellas automática. Dicha
+máquina nos pagará dinero por la cantidad de plástico reciclado. Tenemos que ingresar
+nuestro usuario y contraseña para que se nos cargue el saldo por sistema a nuestra
+cuenta.
+• Condición simple anidada: validaremos que el usuario sea “Albus_D”, luego si esto es
+verdadero, validaremos si la contraseña es “caramelosDeLimon”. Si la contraseña es
+correcta haremos que una variable llamada Login sea verdadera.
+• Bucle Mientras: Este bloque de validación de la contraseña lo encerraremos en un
+bucle Mientras para darle al usuario sólo 3 intentos para poner la contraseña.
+• Bucle Hacer Mientras(Repetir): Una vez que el login sea verdadero, accederemos al
+menú de opciones:
+o Ingresar botellas
+o Consultar saldo
+o Salir
+
+• Ingresar Botellas: Primero preguntaremos cuántas botellas se va a ingresar al sistema.
+Una vez que tenemos el número vamos a usar un bucle para, a fin de ir ingresando
+cada botella. En cada ciclo del bucle se debe generar un número aleatorio entre 100 y
+3000 gr, que va a ser el peso de las botellas a reciclar (simulando que el usuario está
+ingresando botellas en la máquina). Una vez generado, según el peso del material,
+usaremos un condicional múltiple para asignarle un valor monetario:
+o Si es menos de 500 gr, corresponden $50
+o Si es entre 501 gr y 1500 gr, corresponden $125
+o Si es más de 1501 gr, corresponden $200
+Hecho esto, el programa debe informar al usuario por pantalla el valor que se le
+ofrece. Si el usuario acepta, lo acreditamos a su saldo, sino se debe devolver el
+material (sólo mostrar en pantalla “Devolviendo material”). Para esto usaremos un
+condicional doble.
+• Consultar saldo: revisaremos el valor monetario que tiene asignada la variable “saldo”.
+• Tanto al terminar “Ingresar Botellas” como “Consultar Saldo” debe volver al menú
+principal.
+
+Definir usuario,clave,respuesta Como Caracter
+	Definir Login Como Logico
+	Definir intentos,OP,cantidad,i,peso,precio,saldo Como Entero
+	intentos=1
+	
+	
+	Repetir
+		Escribir "Ingrese el usuario"
+		Leer usuario
+		Escribir "Ingrese la contraseña"
+		Leer clave
+		
+		Login = usuario=="Albus_D" y clave=="caramelosDeLimon"
+		intentos=intentos+1
+	Mientras Que Login=FALSO y intentos<=3
+	
+	Mientras Login==VERDADERO Hacer
+		Escribir "MENU DE OPCIONES"
+		Escribir "1.Ingresar botellas "
+		Escribir "2. Consultar saldo "
+		Escribir "3.Salir "
+		
+		Escribir ""
+		Escribir "Elija una opcion"
+		Leer OP
+		
+		Segun OP Hacer
+			1:
+				Escribir "¿Cuantas botellas se va a ingresar al sistema?"
+				Leer cantidad
+				Para i=1 Hasta cantidad Con Paso 1 Hacer
+					peso=Aleatorio(100,3000)
+					
+					
+				Fin Para
+				Si peso<=500 Entonces
+					precio=50
+					Escribir "El precio de las botellas es: $" precio 
+					Escribir "¿Acepta la oferta?"
+					Leer respuesta
+					Si respuesta=="si" o respuesta=="SI" Entonces
+						saldo=precio
+					SiNo
+						Escribir "Devolviendo el material"	
+					Fin Si
+				SiNo
+					Si peso>500 y peso<1500 Entonces
+						precio=125
+						Escribir "El precio de las botellas es: $" precio 
+						Escribir "¿Acepta la oferta?"
+						Leer respuesta
+						Si respuesta=="si" o respuesta=="SI" Entonces
+							saldo=precio
+						SiNo
+							Escribir "Devolviendo el material"
+						Fin Si
+					SiNo
+						Si peso>=1500 Entonces
+							precio=200
+							Escribir "El precio de las botellas es: $" precio
+							Escribir "¿Acepta la oferta?"
+							Leer respuesta
+							Si respuesta=="si" o respuesta=="SI" Entonces
+								saldo=precio
+							SiNo
+								Escribir "Devolviendo el material"
+							Fin Si
+						SiNo
+							
+						Fin Si
+					Fin Si
+				Fin Si
+				
+			2:
+				
+				Escribir "Su saldo es: " saldo
+				
+			3:
+				
+			De Otro Modo:
+				
+		Fin Segun
+	Fin Mientras

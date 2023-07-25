@@ -1,0 +1,431 @@
+1.Realizar un algoritmo que llene un vector con los 100 primeros números enteros y los muestre por pantalla en orden descendente.
+
+int[] vector = new int[101];
+       int i;
+       
+       for(i=1;i<=100;i++){
+       vector[i]=i;
+       }
+       
+       for(i=100;i>=1;i--){
+       System.out.println(vector[i]);  
+       }
+
+2.Realizar un algoritmo que llene un vector de tamaño N con valores aleatorios y le pida al usuario un número a buscar en el vector. El programa mostrará dónde se encuentra el numero y si se encuentra repetido.
+
+ Scanner entrada =new Scanner(System.in);    
+    int[] vector = new int[11];  
+    int i,contador=0;
+       
+       for(i=0;i<=10;i++){
+       vector[i]=(int)(random()*10); 
+       }
+       
+       System.out.print("INGRESE UN NUMERO A BUSCAR EN EL VECTOR: ");
+       int numero = entrada.nextInt();
+       
+       for(i=0;i<=10;i++){
+       if (numero==vector[i]){
+           System.out.println("EL NUMERO SE ENCUENTRA EN EL INDICE "+contador);
+       } 
+       contador++;    
+       }
+
+3.Recorrer un vector de N enteros contabilizando cuántos números son de 1 dígito, cuántos de 2 dígitos, etcétera (hasta 5 dígitos).
+
+public static void main(String[] args) {
+    
+    int[] vector = new int[10];  
+    int i,contador=0,uno=0,dos=0,tres=0,cuatro=0,cinco=0;
+       
+       vector[0]=1;
+       vector[1]=2;
+       vector[2]=100;
+       vector[3]=30;
+       vector[4]=100;
+       vector[5]=3000;
+       vector[6]=20;
+       vector[7]=4000;
+       vector[8]=5000;
+       vector[9]=10000;
+       
+       for(i=0;i<=9;i++){
+       
+       while(vector[i]!=0){
+       vector[i]=vector[i]/10;
+       contador++;
+       }
+       
+       switch(contador){
+           case 1: uno=uno+1; break;
+           case 2: dos=dos+1; break;
+           case 3: tres=tres+1; break;
+           case 4: cuatro=cuatro+1; break;
+           case 5: cinco=cinco+1; break;
+        }
+       
+       contador=0;
+       
+       }
+       
+       System.out.println("NUMEROS DENTRO DEL VECTOR");
+       System.out.println("UN DIGITO: "+uno);
+       System.out.println("DOS DIGITOS: "+dos);
+       System.out.println("TRES DIGITOS: "+tres);
+       System.out.println("CUATRO DIGITOS: "+cuatro);
+       System.out.println("CINCO DIGITOS: "+cinco);
+    }
+
+OTRA MANERA
+
+public static void main(String[] args) {
+
+        int[] numeros = new int[10];
+        llenar(numeros);
+        mostrarVector(numeros);
+        int[] cantDigitos = new int[5];
+
+        for (int i = 0; i < 10; i++) {
+            //adentro de numeros tengo un nro. Usamos String ValueOf para transformarlo
+            // en cadena. Como ahora es un String, puedo usar .Length (es decir,
+            // que se transformó en un nro) Con el -1, hacemos un Ofset
+
+            cantDigitos[String.valueOf(numeros[i]).length() - 1]++;
+
+        }
+
+//        System.out.println("Numeros de 1 digito hay: " + cantDigitos[0]);
+//        System.out.println("Numeros de 2 digito hay: " + cantDigitos[1]);
+//        System.out.println("Numeros de 3 digito hay: " + cantDigitos[2]);
+//        System.out.println("Numeros de 4 digito hay: " + cantDigitos[3]);
+//        System.out.println("Numeros de 5 digito hay: " + cantDigitos[4]);
+        for (int i = 0; i <= 4; i++) {
+            System.out.println("Numeros de " + (i + 1) + " digito hay: " + cantDigitos[i]);
+        }
+
+        // for mejorado, segun video guia 5
+        System.out.println("\nFor mejorado\n");
+        int i = 1;
+        for (int digitos : cantDigitos) {
+            System.out.println("Numeros de " + i + " digito hay: " + digitos);
+            i++;
+        }
+    }
+
+    //busca llenar y lo llena a Numeros
+    public static void llenar(int[] arreglo) {
+        Random rand = new Random();
+        int digi;
+        for (int i = 0; i < arreglo.length; i++) {
+            digi = rand.nextInt(5);
+            switch (digi) {
+                case 0:
+                    arreglo[i] = rand.nextInt(9);
+                    break;
+                case 1:
+                    arreglo[i] = rand.nextInt(99);
+                    break;
+                case 2:
+                    arreglo[i] = rand.nextInt(999);
+                    break;
+                case 3:
+                    arreglo[i] = rand.nextInt(9999);
+                    break;
+                case 4:
+                    arreglo[i] = rand.nextInt(99999);
+                    break;
+            }
+        }
+    }
+
+    // muestra pero al Vector Numeros
+    public static void mostrarVector(int[] vector) {
+        System.out.println("-------------- Listado de numeros --------------");
+        System.out.print("[ ");
+        for (int i = 0; i < vector.length; i++) {
+            System.out.print(vector[i] + " ");
+        }
+        System.out.print("]");
+        System.out.println("");
+        System.out.println("------------------------------------------------");
+    }
+
+4.Realizar un programa que rellene un matriz de 4 x 4 de valores aleatorios y muestre la traspuesta de la matriz. La matriz traspuesta de una matriz A se denota por B y se obtiene cambiando sus filas por columnas (o viceversa).
+
+int[][] matriz = new int[4][4];
+       int i,j;
+       
+       for(i=0;i<4;i++){
+       for(j=0;j<4;j++){
+       matriz[i][j]=(int)(random()*10);
+       }
+       }
+       
+       for(i=0;i<4;i++){
+       for(j=0;j<4;j++){
+       System.out.print(matriz[i][j]+" ");  
+       }
+       System.out.println("");
+       }
+        
+       System.out.println("");
+       
+       for(i=0;i<4;i++){
+       for(j=0;j<4;j++){
+       System.out.print(matriz[j][i]+" ");  
+       }
+       System.out.println("");
+       }
+
+5.Realice un programa que compruebe si una matriz dada es antisimétrica. Se dice que una matriz A es antisimétrica cuando ésta es igual a su propia traspuesta, pero cambiada de signo. Es decir, A es antisimétrica si A = -AT. La matriz traspuesta de una matriz A se denota por AT y se obtiene cambiando sus filas por columnas (o viceversa).
+
+public class Practicas {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args){
+       Scanner entrada = new Scanner (System.in);
+       int[][] matriz = new int[3][3];
+       int i,j,contador=0;
+       
+       for(i=0;i<3;i++){
+       for(j=0;j<3;j++){
+       matriz[i][j]= entrada.nextInt();
+       }
+       }
+       
+       System.out.println("");
+       for(i=0;i<3;i++){
+       for(j=0;j<3;j++){
+       System.out.print(matriz[i][j]+" "); 
+       if (matriz[i][j]==(matriz[j][i]*-1)){
+       contador++;} 
+       }
+       System.out.println("");
+       }
+       
+       System.out.println("");
+       if(contador==9){
+           System.out.println("LA MATRIZ ES ANTISIMETRICA");
+       }else{
+           System.out.println("LA MATRIZ NO ES ANTISIMETRICA");
+       }
+       
+       System.out.println("");
+       
+       for(i=0;i<3;i++){
+       for(j=0;j<3;j++){
+       System.out.print(matriz[j][i]+" ");  
+       }
+       System.out.println("");
+       }
+    }
+
+6.Un cuadrado mágico 3 x 3 es una matriz 3 x 3 formada por números del 1 al 9 donde la suma de sus filas, sus columnas y sus diagonales son idénticas. Crear un programa que permita introducir un cuadrado por teclado y determine si este cuadrado es mágico o no. El programa deberá comprobar que los números introducidos son correctos, es decir, están entre el 1 y el 9.
+
+public static void main(String[] args){
+       Scanner entrada = new Scanner (System.in);
+       int[][] matriz = new int[3][3];
+       int[] vector = new int[8];
+       int i,j,contador=0;
+       
+       System.out.println("RELLENE LA MATRIZ");
+       for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+        matriz[i][j]= entrada.nextInt();
+        }
+       }
+       
+       for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+            if (matriz[i][j]<10 && matriz[i][j]>0){           //COMPROBAR SI LOS NUMEROS ESTAN ENTRE 1-9
+            contador++;
+            }
+        }
+       }
+       
+       if(contador==9){
+       contador=0;
+       vector[0]=matriz[0][0]+matriz[0][1]+matriz[0][2];
+       vector[1]=matriz[1][0]+matriz[1][1]+matriz[1][2]; //SUMAR LAS FILAS Y GUARDARLAS
+       vector[2]=matriz[2][0]+matriz[2][1]+matriz[2][2];
+          
+       vector[3]=matriz[0][0]+matriz[1][0]+matriz[2][0];
+       vector[4]=matriz[0][1]+matriz[1][1]+matriz[2][1]; //SUMAR LAS COLUMNAS Y GUARDARLAS
+       vector[5]=matriz[0][2]+matriz[1][2]+matriz[2][2];
+           
+       vector[6]=matriz[0][0]+matriz[1][1]+matriz[2][2]; //SUMAR LAS DIAGONALES Y GUARDARLAS
+       vector[7]=matriz[0][2]+matriz[1][1]+matriz[2][0];
+           
+       for(i=1;i<8;i++){
+           if(vector[0]==vector[i])
+           contador++;
+           }
+           
+           if(contador==7){
+           System.out.println("EL CUADRADO DE 3X3 ES MAGICO");
+           } else {
+             System.out.println("EL CUADRADO DE 3X3 NO ES MAGICO");
+             }
+           
+       
+       } else {
+         System.out.println("ERROR, LOS NUMEROS INGRESADOS DENTRO DE UN CUADRADO MAGICO DEBEN SER ENTRE 1-9");
+         } 
+    }
+
+EJERCICIOS EXTRAS
+
+1.Realizar un algoritmo que calcule la suma de todos los elementos de un vector de tamaño N, con los valores ingresados por el usuario.
+
+public static void main(String[] args){
+       Scanner entrada = new Scanner (System.in);
+       int i,suma=0;
+       
+        System.out.println("INGRESE EL TAMAÑO DEL VECTOR");
+        int tamaño = entrada.nextInt();
+        int[] vector = new int[tamaño];
+        
+        for(i=0;i<tamaño-1;i++){
+        vector[i]=(int)(random()*10);
+        suma=suma+vector[i];
+        }
+     
+        System.out.println("LA SUMA DE TODOS LOS ELEMENTOS DEL VECTOR ES: "+suma);
+    }
+
+2.Escriba un programa que averigüe si dos vectores de N enteros son iguales (la comparación deberá detenerse en cuanto se detecte alguna diferencia entre los elementos).
+
+public static void main(String[] args) {
+    Scanner entrada = new Scanner (System.in);
+    int i,contador=0;
+    boolean OP=true;
+    
+        System.out.print("INGRESE EL TAMAÑO DE LOS VECTORES: ");
+        int tamaño = entrada.nextInt();
+        
+        int[] vectorA = new int[tamaño]; 
+        int[] vectorB = new int[tamaño];
+        
+        
+        for(i=0;i<tamaño;i++){
+        vectorA[i]=5;
+        vectorB[i]=5;
+        }
+        
+        while(OP==true){
+            if(vectorA[contador]==vectorB[contador]&&contador<tamaño-1){
+            contador++;
+            }else {
+            OP=false;
+            }
+        }
+        
+        if(contador==tamaño-1){
+        System.out.println("LOS VECTORES SON IGUALES");
+        }else{
+        System.out.println("LOS VECTORES NO SON IGUALES");
+        }
+       
+    }
+
+3.Crear una función rellene un vector con números aleatorios, pasándole un arreglo por parámetro. Después haremos otra función o procedimiento que imprima el vector.
+
+4.Los profesores del curso de programación de Egg necesitan llevar un registro de las notas adquiridas por sus 10 alumnos para luego obtener una cantidad de aprobados y desaprobados. Durante el período de cursado cada alumno obtiene 4 notas, 2 por trabajos prácticos evaluativos y 2 por parciales. Las ponderaciones de cada nota son:
+Primer trabajo práctico evaluativo 10%
+Segundo trabajo práctico evaluativo 15%
+Primer Integrador 25%
+Segundo integrador 50%
+Una vez cargadas las notas, se calcula el promedio y se guarda en el arreglo. Al final del programa los profesores necesitan obtener por pantalla la cantidad de aprobados y desaprobados, teniendo en cuenta que solo aprueban los alumnos con promedio mayor o igual al 7 de sus notas del curso.
+
+5.Realizar un programa que llene una matriz de tamaño NxM con valores aleatorios y muestre la suma de sus elementos.
+
+ public static void main(String[] args) {
+    Scanner entrada = new Scanner (System.in);
+    int i,j,suma=0;
+    
+        System.out.println("INGRESE LA CANTIDAD DE FILAS DE LA MATRIZ");
+        int filas = entrada.nextInt();
+        System.out.println("INGRESE LA CANTIDAD DE COLUMNAS DE LA MATRIZ");
+        int columnas = entrada.nextInt();
+        
+        int[][] matriz = new int[filas][columnas];    //DECLARAMOS LA MATRIZ
+        
+        for(i=0;i<filas;i++){
+            for(j=0;j<columnas;j++){
+            matriz[i][j]=(int)(random()*10);         //RELLENAMOS LA MATRIZ
+            suma=suma+matriz[i][j];
+            }
+        }
+        
+        System.out.println("LA SUMA DE TODOS LOS ELEMENTOS DE LA MATRIZ ES: "+suma);
+    } 
+
+6.Construya un programa que lea 5 palabras de mínimo 3 y hasta 5 caracteres y, a medida que el usuario las va ingresando, construya una “sopa de letras para niños” de tamaño de 20 x 20 caracteres. Las palabras se ubicarán todas en orden horizontal en una fila que será seleccionada de manera aleatoria. Una vez concluida la ubicación de las palabras, rellene los espacios no utilizados con un número aleatorio del 0 al 9. Finalmente imprima por pantalla la sopa de letras creada.
+Nota: Para resolver el ejercicio deberá investigar cómo se utilizan las siguientes funciones de Java substring(), Length() y Math.random().
+
+public static void main(String[] arg){
+        Scanner entrada = new Scanner (System.in);
+        String[] vectorPalabra = new String[5];
+        String[][] matriz = new String[20][20];
+        int k,h,j,i;
+        
+        System.out.println("INGRESE 5 PALABRAS:");
+        for(i=0;i<5;i++){
+        vectorPalabra[i]=entrada.next();           //ESCRIBIMOS LAS 5 PALABRAS 
+        }
+        
+        
+        
+        for(i=0;i<5;i++){
+        k=(int)(random()*20);
+        h=(int)(random()*5);    
+            for(j=0;j<vectorPalabra[i].length();j++){
+                if(matriz[k][h]!=null){
+                k++;    
+                matriz[k][h]=vectorPalabra[i].substring(j,j+1);
+                h++;
+                }else{
+                matriz[k][h]=vectorPalabra[i].substring(j,j+1);
+                h++;
+                }
+            }
+        }
+       
+        
+        for(i=0;i<20;i++){
+            for(j=0;j<20;j++){
+                if(matriz[i][j]==null){
+                matriz[i][j]=Integer.toString((int)(random()*10));
+                }
+            }                                          
+        }
+       
+        System.out.println("");
+        System.out.println("SOPA DE LETRAS");
+        System.out.println("");
+        for(i=0;i<20;i++){
+            for(j=0;j<20;j++){
+            System.out.print(matriz[i][j]+"-");
+            }                                              //MOSTAR SOPA DE LETRAS
+            System.out.println("");
+        }
+    }
+
+7.Realizar un programa que complete un vector con los N primeros números de la sucesión de Fibonacci. Recordar que la sucesión de Fibonacci es la sucesión de los siguientes números:
+
+1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+
+Donde cada uno de los números se calcula sumando los dos anteriores a él. Por ejemplo:
+La sucesión del número 2 se calcula sumando (1+1)
+Análogamente, la sucesión del número 3 es (1+2),
+Y la del 5 es (2+3),
+Y así sucesivamente…
+La sucesión de Fibonacci se puede formalizar de acuerdo a la siguiente fórmula:
+Fibonaccin = Fibonaccin-1 + Fibonaccin-2 para todo n>1
+Fibonaccin = 1 para todo n<=1
+Por lo tanto, si queremos calcular el término “n” debemos escribir una función que reciba como parámetro el valor de “n” y que calcule la serie hasta llegar a ese valor.
+
+Para conocer más acerca de la serie de Fibonacci consultar el siguiente link: https://quantdare.com/numeros-de-fibonacci/.
+

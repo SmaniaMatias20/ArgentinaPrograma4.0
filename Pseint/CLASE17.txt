@@ -1,0 +1,131 @@
+Funcion calcularPisos()
+	Definir ancho,largo Como Real
+	Escribir "Ingresar el ancho del paño de piso a colocar"
+	Leer ancho
+	Escribir "Ingresar el largo del paño de piso a colocar"
+	Leer largo
+	Escribir "La superficie es de: " calcularSuperficie(ancho,largo) "M2"
+	
+Fin Funcion
+
+Funcion calcularTecho()
+	Definir espesor,largo,ancho,total Como Real
+	Escribir "Ingrese el espesor del techo"
+	Leer espesor
+	Escribir "Ingrese el largo del techo"
+	Leer largo
+	Escribir "Ingrese el ancho del techo"
+	Leer ancho
+	total=largo*ancho
+	Escribir "Se necesitaran " total*33 "KM de cemento, " total*0.072 "M3 de arena, " total*0.072 "M3 de piedra, " total*7 "M de hierro del 8 y " total*4 "M de hierro del 6."
+	
+Fin Funcion
+
+Funcion calcularContrapisos()
+	Definir espesor,largo,ancho,total Como Real
+	Escribir "Ingrese el espesor del contrapiso"
+	Leer espesor
+	Escribir "Ingrese el largo del contrapiso"
+	Leer largo
+	Escribir "Ingrese el ancho del contrapiso"
+	Leer ancho
+	total=espesor*largo*ancho
+	Escribir "Se necesitaran " total*105 "KM de cemento, " total*0.45 "M3 de arena, " total*0.9 "M3 de piedra."
+	
+Fin Funcion
+
+Funcion calcularColumna()
+	Definir Columna Como Real
+	Escribir "Ingrese los metros de largo de la columna"
+	Leer Columna
+	Escribir "Se necesitaran " Columna*7.5 "KG de cemento, " Columna*0.016 "M3 de arena, " Columna*0.016 "M2 de piedra, " Columna*6 "M de hierro del 10 y " Columna*3 "M de hierro del 4."
+	
+Fin Funcion
+
+Funcion calcularViga()
+	Definir Viga Como Real
+	Escribir "Ingrese los metros de largo de la viga"
+	Leer Viga
+	Escribir "Se necesitaran " Viga*9 "KG de cemento, " Viga*0.02 "M3 de arena, " Viga*0.02 "M2 de piedra, " Viga*4 "M de hierro del 8 y " Viga*3 "M de hierro del 4."
+	
+Fin Funcion
+
+Funcion Superficie <- calcularSuperficie (variable1,variable2)
+	Definir Superficie Como Real
+	Superficie= variable1*variable2
+	
+Fin Funcion
+
+
+Funcion calcularMuro()
+	Definir espesor,largo,alto Como Real
+	Escribir "¿De cuantos centimetros es el espesor del muro?"
+	Escribir "-20"
+	Escribir "-30"
+	Leer espesor
+	
+	Segun espesor Hacer
+		20:
+			Escribir "¿Cuantos metros de alto tiene el muro?"
+			Leer alto
+			Escribir "¿Cuantos metros de largo tiene el muro?"
+			Leer largo
+			Escribir "La superficie es de: " calcularSuperficie(largo,espesor) " MTS"
+			Escribir "Necesitaremos: 10.9 kg de cemento, 0.09 m3 de arena y 90 ladrillos."
+			
+		30:
+			Escribir "¿Cuantos metros de alto tiene el muro?"
+			Leer alto
+			Escribir "¿Cuantos metros de largo tiene el muro?"
+			Leer largo
+			Escribir "La superficie es de: " calcularSuperficie(largo,espesor) " MTS"
+			Escribir "Necesitaremos: 10.9 kg de cemento, 0.09 m3 de arena y 90 ladrillos."
+		De Otro Modo:
+			Escribir "ERROR"
+	Fin Segun
+	
+	
+Fin Funcion
+
+Funcion Menu()
+	Escribir "1.Calcular muro de ladrillo"
+	Escribir "2.Calcular viga de hormigón"
+	Escribir "3.Calcular columnas de hormigón"
+	Escribir "4.Calcular contrapisos"
+	Escribir "5.Calcular techo"
+	Escribir "6.Calcular pisos"
+	Escribir "7.Calcular pintura"
+	Escribir "8.Calcular iluminación"
+	Escribir "9.Salir"
+	Definir op Como Real
+	Leer op
+	Segun op Hacer
+		1:
+			calcularMuro()
+		2:
+			calcularViga()
+		3:
+			calcularColumna()
+		4:
+			calcularContrapisos()
+		5:
+			calcularTecho()
+		6:
+			calcularPisos()
+		7:
+			calcularPintura()
+		8:
+			calcularIluminacion()
+		9:
+			Salir()
+		De Otro Modo:
+			secuencia_de_acciones_dom
+	Fin Segun
+	
+	
+Fin Funcion
+
+
+Algoritmo sin_titulo
+Menu()
+FinAlgoritmo

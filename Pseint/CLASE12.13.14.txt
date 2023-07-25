@@ -1,0 +1,424 @@
+1.Realizar una función que calcule la suma de dos números. En el algoritmo principal le pedire-
+mos al usuario los dos números para pasárselos a la función. Después la función calculará la
+suma y lo devolverá para imprimirlo en el algoritmo.
+
+Funcion resultado <- suma ( num1,num2 )
+	Definir resultado Como Real
+	resultado=num1+num2
+	
+Fin Funcion
+
+Algoritmo clase121314
+	
+	Definir num1,num2 Como Real
+	Escribir "Ingrese dos numeros"
+	Leer num1,num2
+	Escribir "La suma de los dos numeros es: " suma(num1,num2)
+	
+FinAlgoritmo
+
+2. Realizar una función que valide si un número es impar o no. Si es impar la función debe devol-
+ver un verdadero, si no es impar debe devolver falso. Nota: la función no debe tener mensajes
+que digan si es par o no, eso debe pasar en el Algoritmo.
+
+Funcion numimpar <- numeroimpar ( num )
+	Definir numimpar Como Real;
+	Definir log Como Logico;
+	log=Verdadero;
+	Si num%2<>0 Entonces
+		Escribir log;
+	SiNo
+		Escribir !log;
+	Fin Si
+	
+Fin Funcion
+
+Algoritmo sin_titulo
+	
+	Definir num Como Entero;
+	Escribir "Ingrese un numero";
+	Leer num;
+	Si numeroimpar(num)==1 Entonces
+		Escribir "El numero es impar";
+	SiNo
+		Escribir "El numero es par";
+	Fin Si
+	
+FinAlgoritmo
+
+3. Crea una función EsMultiplo que reciba los dos números pasados por el usuario, validando
+que el primer número múltiplo del segundo y devuelva verdadero si el primer número es múlti-
+plo del segundo, sino es múltiplo que devuelva falso.
+
+Funcion multiplos <- EsMultiplo ( num1,num2 )
+	
+	Definir Log Como Logico;
+	Log=Verdadero;
+	
+	Si num1%num2==0 Entonces
+		Escribir Log;
+	SiNo
+		Escribir !Log;
+	Fin Si
+	
+Fin Funcion
+
+Algoritmo sin_titulo
+	
+	Definir num1,num2 Como Entero;
+	Escribir "Ingrese dos numeros";
+	Leer num1,num2;
+	Escribir "El primer numero es multiplo del segundo: ", EsMultiplo( num1,num2 );
+	
+FinAlgoritmo
+
+4. Realizar un programa que pida al usuario una frase y una letra a buscar en esa frase. La fun-
+ción debe devolver la cantidad de veces que encontró la letra. Nota: recordar el uso de la fun-
+ción Subcadena().
+
+Funcion busqueda <- CantidadLetras ( frase,letra )
+	
+	Definir i,contador,num Como Entero;
+	num=Longitud(frase)-1;
+	contador=0;
+	
+	Para i=0 Hasta num Con Paso 1 Hacer
+		
+		Si letra=Subcadena(frase,i,i) Entonces
+			contador=contador+1;
+			
+		SiNo
+			
+		Fin Si
+		
+	Fin Para
+	
+	Escribir contador;
+	
+Fin Funcion
+
+Algoritmo sin_titulo
+	
+	Definir frase, letra Como Caracter;
+	Escribir "Ingrese una frase";
+	Leer frase;
+	Escribir "Ingrese una letra";
+	Leer letra;
+	
+	Escribir "La cantidad de " letra " que hay en la frase es: " CantidadLetras( frase,letra );
+	
+	
+FinAlgoritmo
+
+5. Realizar una función que reciba un numero ingresado por el usuario y averigüe si el número es
+primo o no. Un número es primo cuando es divisible sólo por 1 y por sí mismo, por ejemplo: 2,
+3, 5, 7, 11, 13, 17, etc. Nota: recordar el uso del MOD.
+
+Definir contador,i Como Entero;
+	contador=0;
+	i=0;
+	
+	Para i=1 Hasta num Con Paso 1 Hacer
+		Si num%i==0 Entonces
+			contador=contador+1;
+		SiNo
+			
+		Fin Si
+	Fin Para
+	
+	Si contador==2 Entonces
+		Escribir "El numero es primo";
+	SiNo
+		Escribir "El numero no es primo";
+	Fin Si
+	
+Fin Funcion
+
+
+Algoritmo sin_titulo
+	
+	Definir num Como Entero;
+	Escribir "Ingrese un numero";
+	Leer num;
+	
+	Escribir NumeroPrimo( num );
+	
+FinAlgoritmo
+
+6. Realizar una función que calcule y retorne la suma de todos los divisores del número n distin-
+tos de n. El valor de n debe ser ingresado por el usuario.
+
+Funcion division <- SumaDivisores ( num )
+	
+	Definir i,contador Como Entero;
+	contador=0;
+	
+	Para i=1 Hasta num-1 Con Paso 1 Hacer
+		Si num%i==0 Entonces
+			Contador=contador+i;
+			
+		SiNo
+			
+		Fin Si
+	Fin Para
+	
+	Escribir contador;
+	
+Fin Funcion
+
+Algoritmo sin_titulo
+	
+	Definir num Como Entero;
+	Escribir "Ingrese un numero";
+	Leer num;
+	
+	Escribir "la suma de todos los divisores de " num " es: " SumaDivisores( num );
+	
+	
+FinAlgoritmo
+
+7. Diseñar una función que reciba un numero en forma de cadena y lo devuelva como numero
+entero. El programa podrá recibir números de hasta 3 dígitos. Nota: no poner números con de-
+cimales ni letras. Ejemplo: ingresando “100”(carácter) debe convertirse en 100(entero).
+
+Funcion convertir <- convertirNum(num)
+	Definir convertir Como Entero
+	convertir=ConvertirANumero(num)
+	Si convertir<=999 Entonces
+		Escribir convertir
+	SiNo
+		Escribir "Error"
+	Fin Si
+	
+Fin Funcion
+
+Algoritmo sin_titulo
+	
+	Definir frase Como Caracter
+	Definir resultado Como Entero
+	Escribir "Ingrese un numero"
+	Leer frase
+	resultado=convertirNum(frase)
+FinAlgoritmo
+
+8. Crear una función llamada “Login”, que recibe un nombre de usuario y una contraseña y que
+devuelve Verdadero si el nombre de usuario es “usuario1” y si la contraseña es “asdasd”. Ade-
+más, la función calculara el número de intentos que se ha usado para loguearse, tenemos solo
+3 intentos, si nos quedamos sin intentos la función devolverá Falso.
+
+Funcion Loguearse <- Login ( variable1,variable2 )
+	Definir Loguearse Como Logico
+	Definir intentos Como Entero
+	intentos=1
+	Loguearse=Verdadero
+	
+	Mientras intentos<3 Hacer
+		Si variable1=="usuario1" Entonces
+			Si variable2=="asdasd" Entonces
+				Loguearse=Verdadero
+			SiNo
+				
+			Fin Si
+		SiNo
+			
+		Fin Si
+		intentos=intentos+1
+		Escribir "Ingresar el usuario"
+		Leer variable1
+		Escribir "Ingresar la contraseña"
+		Leer variable2
+	Fin Mientras
+	
+	Escribir Loguearse=FALSO
+	
+Fin Funcion
+
+Algoritmo IniciarSesion
+	
+	Definir usuario,clave Como Caracter
+	Definir resultado Como Logico
+	Escribir "Ingresar el usuario"
+	Leer usuario
+	Escribir "Ingresar la contraseña"
+	Leer clave
+	
+	resultado=Login(usuario,clave)
+	
+FinAlgoritmo
+
+9. Los empleados de una fábrica trabajan en dos turnos: Diurno y Nocturno. Se desea calcular el
+jornal diario de acuerdo con las siguientes reglas:
+a) La tarifa de las horas diurnas es de $ 90
+b) La tarifa de las horas nocturnas es de $ 125
+c) En caso de ser feriado, la tarifa se incrementa en un 10% si el turno es diurno y en
+un 15% si el turno es nocturno.
+El programa debe solicitar la siguiente información al usuario: el nombre del trabajador, el día
+de la semana, el turno (diurno o nocturno) y la cantidad de horas trabajadas. Además, debe-
+mos preguntarle al usuario si el día de la semana (lunes, martes, miércoles, etc.) era festivo o
+no, para poder calcular el jornal diario. Utilice una función para realizar el cálculo.
+
+Funcion Jornal <- Turnos( variable1,variable2 )
+	
+	Definir Jornal Como Real
+	Jornal=variable1*variable2
+
+Fin Funcion
+
+Algoritmo Trabajo
+	Definir nombre,turno,Respuesta,dia Como Caracter
+	Definir horas,jornaldiario Como Real
+	Escribir "Ingrese el nombre del trabajador"
+	Leer nombre
+	Escribir "Ingrese el dia de la semana"
+	Leer dia
+	Escribir "¿Es un dia feriado?"
+	Leer Respuesta
+	Escribir "Ingrese el turno de trabajo"
+	Escribir "-DIURNO"
+	Escribir "-NOCTURNO"
+	Leer turno
+	Escribir "Ingrese la cantidad de horas trabajadas"
+	Leer horas
+	
+	Segun dia Hacer
+		"lunes" o "LUNES":
+			Segun turno Hacer
+				"diurno" o "DIURNO":
+					Si Respuesta=="SI" o Respuesta=="si"  Entonces
+						jornaldiario= Turnos(90*1.10,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					SiNo
+						jornaldiario=Turnos(90,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					Fin Si
+				"nocturno" o "NOCTURNO":
+					Si Respuesta=="SI" o Respuesta=="si"  Entonces
+						jornaldiario=Turnos(125*1.15,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					SiNo
+						jornaldiario=Turnos(125,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					Fin Si
+				De Otro Modo:
+					Escribir "ERROR"
+			Fin Segun
+		"martes" o "MARTES":
+			Segun turno Hacer
+				"diurno" o "DIURNO":
+					Si Respuesta=="SI" o Respuesta=="si"  Entonces
+						jornaldiario= Turnos(90*1.10,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					SiNo
+						jornaldiario=Turnos(90,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					Fin Si
+				"nocturno" o "NOCTURNO":
+					Si Respuesta=="SI" o Respuesta=="si"  Entonces
+						jornaldiario=Turnos(125*1.15,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					SiNo
+						jornaldiario=Turnos(125,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					Fin Si
+				De Otro Modo:
+					Escribir "ERROR"
+			Fin Segun
+		"miercoles" o "MIERCOLES":
+			Segun turno Hacer
+				"diurno" o "DIURNO":
+					Si Respuesta=="SI" o Respuesta=="si"  Entonces
+						jornaldiario= Turnos(90*1.10,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					SiNo
+						jornaldiario=Turnos(90,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					Fin Si
+				"nocturno" o "NOCTURNO":
+					Si Respuesta=="SI" o Respuesta=="si"  Entonces
+						jornaldiario=Turnos(125*1.15,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					SiNo
+						jornaldiario=Turnos(125,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					Fin Si
+				De Otro Modo:
+					Escribir "ERROR"
+			Fin Segun
+		"jueves" o "JUEVES":
+			Segun turno Hacer
+				"diurno" o "DIURNO":
+					Si Respuesta=="SI" o Respuesta=="si"  Entonces
+						jornaldiario= Turnos(90*1.10,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					SiNo
+						jornaldiario=Turnos(90,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					Fin Si
+				"nocturno" o "NOCTURNO":
+					Si Respuesta=="SI" o Respuesta=="si"  Entonces
+						jornaldiario=Turnos(125*1.15,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					SiNo
+						jornaldiario=Turnos(125,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					Fin Si
+				De Otro Modo:
+					Escribir "ERROR"
+			Fin Segun
+		"viernes" o "VIERNES":
+			Segun turno Hacer
+				"diurno" o "DIURNO":
+					Si Respuesta=="SI" o Respuesta=="si"  Entonces
+						jornaldiario= Turnos(90*1.10,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					SiNo
+						jornaldiario=Turnos(90,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					Fin Si
+				"nocturno" o "NOCTURNO":
+					Si Respuesta=="SI" o Respuesta=="si"  Entonces
+						jornaldiario=Turnos(125*1.15,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					SiNo
+						jornaldiario=Turnos(125,horas)
+						Escribir "El jornal diario es de: $" jornaldiario
+					Fin Si
+				De Otro Modo:
+					Escribir "ERROR"
+			Fin Segun
+	Fin Segun
+	
+FinAlgoritmo
+
+
+
+10. Realizar una función que calcule la suma de los dígitos de un número.
+Ejemplo: 25 = 2 + 5 = 7
+Nota: Para obtener el último número de un digito de 2 cifras o más debemos pensar en el
+resto de una división entre 10. Recordar el uso de la función Mod y Trunc.
+
+11. Realizar una función que reciba un numero ingresado por el usuario y averigüe si el número
+tiene todos sus dígitos impares (ejemplo: 333, 55, etc.). Para esto vamos a tener que separar el
+numero en partes (si es un numero de más de un digito) y ver si cada número es par o impar.
+Nota: recordar el uso de la función Mod y Trunc(). No podemos pasar el numero a cadena para
+realizar el ejercicio.
+
+12. Realizar una función que permita obtener el término n de la sucesión de Fibonacci. La suce-
+sión de Fibonacci es la sucesión de los siguientes números:
+1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+Donde cada uno de los números se calcula sumando los dos anteriores a él. Por ejemplo:
+La sucesión del número 2 se calcula sumando (1+1)
+Análogamente, la sucesión del número 3 es (1+2),
+Y la del 5 es (2+3),
+Y así sucesivamente...
+La sucesión de Fibonacci se puede formalizar de acuerdo a la siguiente fórmula:
+Fibonacci (n) = Fibonacci (n-1) + Fibonacci (n-2) para todo n > 1
+Fibonacci (n) = 1 para todo n <= 1
+Por lo tanto, si queremos calcular el término “n” debemos escribir una función que reciba
+como argumento el valor de “n” y que calcule la serie hasta llegar a ese valor.
+Para conocer más acerca de la serie de Fibonacci consultar el siguiente link: https://quant-
+dare.com/numeros-de-fibonacci/
+
+13. Realizar una función que reciba un numero ingresado por el usuario y averigüe si el número es
+capicúa o no (Por ejemplo: 12321). Nota: recordar el uso del MOD y el Trunc. No podemos
+transformar el numero a cadena para realizar el ejercicio.
